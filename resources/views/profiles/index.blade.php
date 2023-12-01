@@ -1,3 +1,9 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/profiles.css">
+</head>
+</html>
+
 @extends('layouts.app')
 
 @section('content')

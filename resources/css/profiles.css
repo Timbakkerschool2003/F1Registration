@@ -1,0 +1,6 @@
+body {
+    background-image: url('../images/red_bull_rb18_2022_formula_1_4k_hd_cars-2560x1440.jpg');
+    background-size: cover; /* Hiermee wordt de achtergrondafbeelding volledig bedekt */
+    background-position: center; /* Hiermee wordt de achtergrondafbeelding gecentreerd */
+    background-repeat: no-repeat; /* Hiermee wordt voorkomen dat de achtergrondafbeelding wordt herhaald */
+}
