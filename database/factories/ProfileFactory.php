@@ -1,25 +1,17 @@
 <?php
 
-namespace Database\Factories;
+// database/factories/ProfileFactory.php
 
-use Illuminate\Database\Eloquent\Factories\Factory;
+use Faker\Generator as Faker;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Profile>
- */
-class ProfileFactory extends Factory
-{
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
-    {
-        return [
-            'firstname' => $this->faker->firstName,
-            'lastname' => $this->faker->lastName,
-            'mobile' => $this->faker->phoneNumber,
-        ];
-    }
-}
+$factory->define(App\Models\Profile::class, function (Faker $faker) {
+    return [
+        'user_id' => factory(App\Models\User::class),
+        'firstname' => $faker->firstName,
+        'lastname' => $faker->lastName,
+        'mobile' => $faker->phoneNumber,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+    ];
+});
+
