@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TeamsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,5 +23,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/edit-profile', [App\Http\Controllers\ProfileController::class]);
-Route::get('/teams', [App\Http\Controllers\TeamsController::class]);
+//Route::get('/teams', function () { return view('teams'); });
+
+
+Route::get('/teams', [App\Http\Controllers\TeamsController::class, 'index'])->name('teams');
+
+
 Route::resource('profiles', ProfileController::class);
