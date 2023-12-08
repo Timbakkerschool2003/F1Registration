@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <img src="{{ asset('../resources/public/F1_teams/ferarri.png') }}" alt="Aston Martin">
+                <img src="{{ asset('images/F1_teams/aston-martin.png') }}" alt="Aston Martin">
                 <img src="{{ asset('images/F1_teams/ferarri.png') }}" alt="Ferarri">
                 <img src="{{ asset('images/F1_teams/mclaren.png') }}" alt="McLaren">
                 <img src="{{ asset('images/F1_teams/mercedes.png') }}" alt="Mercedes">
