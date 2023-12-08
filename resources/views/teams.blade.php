@@ -66,6 +66,7 @@
                             <b>Debut in Formula 1:</b> 2021 season<br>
                             <b>Ownership:</b> Lawrence Stroll.<br>
                             <b>Technical Partner:</b> The team uses Mercedes power units.
+                            <img src="public/images/mclaren.png">
                         </p>
                     </div>
                 </div>
