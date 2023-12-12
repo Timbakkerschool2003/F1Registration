@@ -110,6 +110,6 @@
     <main class="py-4">
         @yield('content')
     </main>
-</div>shxb
+</div>
 </body>
 </html>
