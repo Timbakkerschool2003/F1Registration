@@ -32,9 +32,14 @@
     }
 
     .mclaren {
-        background-color: #000000;
-        border: 5px solid #FF8000;
+        background-color: #FF8000;
+        border: 5px solid #000000;
         border-radius: 1px;
+    }
+
+    img {
+        width: 100px;
+        padding-bottom: 10px;
     }
 
     .astonmartin {
@@ -59,6 +64,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card animated-card">
                     <div class="card-body astonmartin">
+                        <img src="images\F1_teams\aston-martin.png">
                         <h5 class="card-title"><b>Aston Martin</b></h5>
                         <p class="card-text">
                             <b>Team Name:</b> Aston Martin Cognizant Formula One Team<br>
@@ -66,7 +72,6 @@
                             <b>Debut in Formula 1:</b> 2021 season<br>
                             <b>Ownership:</b> Lawrence Stroll.<br>
                             <b>Technical Partner:</b> The team uses Mercedes power units.
-                            <img src="public/images/mclaren.png">
                         </p>
                     </div>
                 </div>
@@ -75,6 +80,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card animated-card">
                     <div class="card-body">
+                        <img src="images\F1_teams\ferarri.png">
                         <h5 class="card-title"><b>Ferrari</b></h5>
                         <p class="card-text">
                             <b>Team Name:</b> Scuderia Ferrari<br>
@@ -92,6 +98,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card animated-card">
                     <div class="card-body mclaren">
+                        <img src="images\F1_teams\mclaren.png">
                         <h5 class="card-title"><b>McLaren</b></h5>
                         <p class="card-text">
                             <b>Team Name:</b> McLaren F1 Team<br>
@@ -108,6 +115,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card animated-card">
                     <div class="card-body mercedes">
+                        <img src="images\F1_teams\mercedes.png">
                         <h5 class="card-title"><b>Mercedes</b></h5>
                         <p class="card-text">
                             <b>Team Name:</b>Mercedes-AMG Petronas Formula One Team<br>
@@ -123,6 +131,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card animated-card">
                     <div class="card-body redbull">
+                        <img src="images\F1_teams\redbull.png">
                         <h5 class="card-title"><b>Red Bull</b></h5>
                         <p class="card-text">
                             <b>Team Name:</b>Red Bull Racing<br>
