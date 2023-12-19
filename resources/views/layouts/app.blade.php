@@ -55,6 +55,16 @@
 
                         </div>
                     </li>
+
+                    <li class="nav-item">
+                        <a id="navbar" class="nav-link" href="/teams" role="button"
+                           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Teams
+                        </a>
+                    </li>
+
+
+
                 </ul>
 
                 <!-- Right Side Of Navbar -->

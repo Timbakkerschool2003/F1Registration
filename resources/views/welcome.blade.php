@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -41,8 +43,13 @@
                 <div class="mt-16">
 {{--                    @dd($users)--}}
                     @foreach($users as $user)
-                        <h1 style="color: white; font-size: 100px" >{{$user->profile->firstname}}</h1>
+                        @if ($user->profile)
+                            <h1 style="color: white; font-size: 100px">{{$user->profile->firstname}}</h1>
+                        @else
+{{--                            <h1 style="color: white; font-size: 100px">No Profile</h1>--}}
+                        @endif
                     @endforeach
+
                 </div>
             </div>
         </div>
