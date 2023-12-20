@@ -15,13 +15,21 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <style>
+        .navbar-bg {
+            background-color: #e10600;
+        }
+        img {
+            width: 100px;
+        }
+    </style>
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-light navbar-bg shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+                <img src="images\Logo-f1.jpg" class="" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -35,19 +43,19 @@
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            profiles
+                            Profielen
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu dropdown-menu-begin" aria-labelledby="navbarDropdown">
                             <ul class="navbar-nav me-auto">
                                 <li class="nav-item">
                                     <a class="dropdown-item" href="/profiles">
-                                        index
+                                        Bekijken
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="dropdown-item" href="/profiles/create">
-                                        create
+                                         Toevoegen
                                     </a>
                                 </li>
 
@@ -57,11 +65,11 @@
                     </li>
 
                     <li class="nav-item">
-                        <a id="navbar" class="nav-link" href="/teams" role="button"
-                           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a id="navbar" class="nav-link" href="{{ route('teams') }}">
                             Teams
                         </a>
                     </li>
+
 
 
 
