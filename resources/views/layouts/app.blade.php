@@ -79,7 +79,7 @@
                         <div class="dropdown-menu dropdown-menu-begin" aria-labelledby="navbarDropdownScoreboard">
                             <ul class="navbar-nav me-auto">
                                 <li class="nav-item">
-                                    <a class="dropdown-item" href="{{ route('scoreboard') }}">
+                                    <a class="dropdown-item" href="{{ route('scoreboard.index') }}">
                                         Bekijken
                                     </a>
                                 </li>
@@ -91,7 +91,8 @@
                             </ul>
                         </div>
                     </li>
-                    
+
+
 
                 </ul>
 
