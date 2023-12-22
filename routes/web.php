@@ -48,4 +48,5 @@ Route::post('/scoreboard/add', [App\Http\Controllers\ScoreboardController::class
 
 
 
+
 Route::resource('profiles', ProfileController::class);
