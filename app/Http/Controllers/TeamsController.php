@@ -6,6 +6,7 @@ class TeamsController extends Controller
 {
     public function index()
     {
-        return view('teams');
+        $teams = Team::all();
+        return view('teams', ['teams' => $teams]);
     }
 }

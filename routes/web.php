@@ -43,5 +43,9 @@ Route::get('/teams', [TeamsController::class, 'index'])->name('teams');
 
 Route::get('/scoreboard',[App\Http\Controllers\ScoreboardController::class, 'getScoreboard'])->name('scoreboard');
 
+Route::get('/scoreboard/add', [App\Http\Controllers\ScoreboardController::class, 'create'])->name('scoreboard.create');
+Route::post('/scoreboard/add', [App\Http\Controllers\ScoreboardController::class, 'store'])->name('scoreboard.store');
+
+
 
 Route::resource('profiles', ProfileController::class);
