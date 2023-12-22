@@ -76,6 +76,12 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a id="navbar" class="nav-link" href="{{ route('scoreboard') }}">
+                            trophies
+                        </a>
+                    </li>
+
                 </ul>
 
                 <!-- Right Side Of Navbar -->

@@ -44,4 +44,5 @@ Route::get('/teams', [TeamsController::class, 'index'])->name('teams');
 Route::get('/scoreboard',[App\Http\Controllers\ScoreboardController::class, 'getScoreboard'])->name('scoreboard');
 
 
+
 Route::resource('profiles', ProfileController::class);
