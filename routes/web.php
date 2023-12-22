@@ -47,6 +47,15 @@ Route::get('/scoreboard',[App\Http\Controllers\ScoreboardController::class, 'get
 
 Route::get('/scoreboard/add', [App\Http\Controllers\ScoreboardController::class, 'create'])->name('scoreboard.create');
 Route::post('/scoreboard/add', [App\Http\Controllers\ScoreboardController::class, 'store'])->name('scoreboard.store');
+// routes/web.php
+Route::get('/scoreboard/add', [ScoreboardController::class, 'create']);
+
+
+
+Route::get('/scoreboard', [ScoreboardController::class, 'index'])->name('scoreboard.index');
+Route::get('/scoreboard/add', [ScoreboardController::class, 'create'])->name('scoreboard.create');
+// Voeg andere routes toe indien nodig
+
 
 Route::get('/trophies', [App\Http\Controllers\TrophyController::class, 'index'])->name('trophies');
 

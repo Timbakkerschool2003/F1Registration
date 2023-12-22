@@ -7,8 +7,38 @@ use App\Models\Team;
 use App\Models\Scoreboard;
 
 
+
+
 class ScoreboardController extends Controller
 {
+    public function storing(Request $request)
+    {
+        // Valideer de invoer, je kunt de validate methode gebruiken zoals hieronder of Laravel Form Request gebruiken.
+        $request->validate([
+            'driver_name' => 'required|string',
+            'time' => 'required|date_format:H:i',
+            'team_name' => 'required|exists:teams,id', // Zorg ervoor dat het team bestaat in de teams tabel
+            'circuit' => 'required|string',
+            'date' => 'required|date',
+        ]);
+
+        // Sla de gegevens op in de database
+        Scoreboard::create($request->all());
+
+        // Stuur de gebruiker door naar een andere pagina of voer andere logica uit
+        return redirect()->route('scoreboard.index')->with('success', 'Score toegevoegd!');
+    }
+
+
+
+
+
+
+
+
+
+
+
     public function getTime()
     {
         $scoreboards = DB::table('scoreboard')
@@ -42,9 +72,10 @@ class ScoreboardController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'time' => 'required',
-            'team_name' => 'required',
+            'team_name' => 'required|exists:teams,name', // Valideer de teamnaam in de teams-tabel
             'date' => 'required',
         ]);
+
 
         $team = Team::where('name', $validatedData['team_name'])->first();
 
