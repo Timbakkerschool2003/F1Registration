@@ -70,6 +70,12 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a id="navbar" class="nav-link" href="{{ route('trophies') }}">
+                            Trophies
+                        </a>
+                    </li>
+
                     <li class="nav-item dropdown">
                         <a id="navbarDropdownScoreboard" class="nav-link dropdown-toggle" href="#" role="button"
                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -91,7 +97,7 @@
                             </ul>
                         </div>
                     </li>
-                    
+
 
                 </ul>
 
