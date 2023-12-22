@@ -70,8 +70,11 @@
                         </a>
                     </li>
 
-
-
+                    <li class="nav-item">
+                        <a id="navbar" class="nav-link" href="{{ route('scoreboard') }}">
+                            Scorebord
+                        </a>
+                    </li>
 
                 </ul>
 

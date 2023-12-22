@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ScoreboardController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,6 +41,7 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 
 Route::get('/teams', [TeamsController::class, 'index'])->name('teams');
 
+Route::get('/scoreboard',[App\Http\Controllers\ScoreboardController::class, 'getScoreboard'])->name('scoreboard');
 
 
 Route::resource('profiles', ProfileController::class);
