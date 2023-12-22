@@ -39,24 +39,6 @@ class ScoreboardController extends Controller
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function getTime()
     {
         $scoreboards = DB::table('scoreboard')
@@ -90,9 +72,10 @@ class ScoreboardController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'time' => 'required',
-            'team_name' => 'required',
+            'team_name' => 'required|exists:teams,name', // Valideer de teamnaam in de teams-tabel
             'date' => 'required',
         ]);
+
 
         $team = Team::where('name', $validatedData['team_name'])->first();
 
