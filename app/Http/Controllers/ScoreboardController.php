@@ -78,7 +78,8 @@ class ScoreboardController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'time' => 'required',
-            'team_name' => 'required|exists:teams,name', // Valideer de teamnaam in de teams-tabel
+            'circuit' => 'required' ,
+            'team_id' => 'required|exists:teams,name', // Valideer de teamnaam in de teams-tabel
             'date' => 'required|date',
         ]);
 
