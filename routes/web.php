@@ -38,4 +38,9 @@ Route::post('/scoreboard/add', [ScoreboardController::class, 'store'])->name('sc
 
 Route::post('/scoreboard/add', [ScoreboardController::class, 'storen'])->name('scoreboard.store');
 
+Route::get('/scoreboard', [ScoreboardController::class, 'getScoreboard'])->name('scoreboard.getScoreboard');
+
+Route::get('/circuit', [CircuitController::class, 'circuit'])->name('circuit');
+
+
 Route::resource('profiles', ProfileController::class);

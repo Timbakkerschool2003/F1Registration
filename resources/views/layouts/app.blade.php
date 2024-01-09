@@ -76,6 +76,8 @@
                         </a>
                     </li>
 
+
+
                     <li class="nav-item dropdown">
                         <a id="navbarDropdownScoreboard" class="nav-link dropdown-toggle" href="#" role="button"
                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -85,7 +87,7 @@
                         <div class="dropdown-menu dropdown-menu-begin" aria-labelledby="navbarDropdownScoreboard">
                             <ul class="navbar-nav me-auto">
                                 <li class="nav-item">
-                                    <a class="dropdown-item" href="">
+                                    <a class="dropdown-item" href=" {{route('scoreboard.getScoreboard')}}">
                                         Bekijken
                                     </a>
                                 </li>
@@ -96,6 +98,12 @@
                                 </li>
                             </ul>
                         </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a id="navbar" class="nav-link" href="{{ route('circuits') }}">
+                            Circuits
+                        </a>
                     </li>
 
 
