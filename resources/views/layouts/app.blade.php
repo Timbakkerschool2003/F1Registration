@@ -101,7 +101,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a id="navbar" class="nav-link" href="{{ route('circuits') }}">
+                        <a id="navbar" class="nav-link" href="{{ route('circuit') }}">
                             Circuits
                         </a>
                     </li>

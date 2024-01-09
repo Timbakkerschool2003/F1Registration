@@ -5,8 +5,11 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\ScoreboardController; // Update namespace
-use App\Http\Controllers\Auth\TrophyController;
+use App\Http\Controllers\ScoreboardController;
+use App\Http\Controllers\TrophyController;
+use App\Http\Controllers\CircuitController;
+
+
 
 Route::get('/', [UserController::class, 'index']);
 

@@ -6,9 +6,9 @@ use App\Models\Circuit;
 
 class CircuitController extends Controller
 {
-    public function Circuit()
+    public function circuit()
     {
-        $Circuit = Team::all();
-        return view('teams', ['teams' => $Circuit]);
+        return view('circuit');
+
     }
 }
