@@ -35,8 +35,8 @@ Route::get('/scoreboard', [ScoreboardController::class, 'index'])->name('scorebo
 Route::get('/trophies', [App\Http\Controllers\TrophyController::class, 'index'])->name('trophies');
 
 
-Route::get('/scoreboard/add', [ScoreboardController::class, 'create'])->name('scoreboard.create');
-Route::post('/scoreboard/add', [ScoreboardController::class, 'store'])->name('scoreboard.store');
+Route::get('/scoreboard/create', [ScoreboardController::class, 'create'])->name('scoreboard.create');
+Route::post('/scoreboard/create', [ScoreboardController::class, 'store'])->name('scoreboard.store');
 
 
 Route::post('/scoreboard/add', [ScoreboardController::class, 'storen'])->name('scoreboard.store');
@@ -44,6 +44,9 @@ Route::post('/scoreboard/add', [ScoreboardController::class, 'storen'])->name('s
 Route::get('/scoreboard', [ScoreboardController::class, 'getScoreboard'])->name('scoreboard.getScoreboard');
 
 Route::get('/circuit', [CircuitController::class, 'circuit'])->name('circuit');
+
+
+Route::get('/scoreboard/add', [CircuitController::class, 'circuitGet'])->name('circuit.circuitGet');
 
 
 Route::resource('profiles', ProfileController::class);

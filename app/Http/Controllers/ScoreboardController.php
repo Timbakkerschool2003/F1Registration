@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Circuit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Team;
 use App\Models\Driver;
 use App\Models\Scoreboard;
+
 
 class ScoreboardController extends Controller
 {
@@ -69,8 +71,17 @@ class ScoreboardController extends Controller
 
     public function create()
     {
-        $teams = Team::all();
-        return view('addscore', ['teams' => $teams]);
+
+
+        $model = new scoreboard();
+
+        $model->time = '10:10:10';
+        $model->teams_id = '1';
+        $model->circuits_id = '2';
+        $model->date = '';
+        $model->drivers_id = '1';
+
+        $model->save();
     }
 
     public function store(Request $request)

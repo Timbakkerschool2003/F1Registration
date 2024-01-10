@@ -6,9 +6,10 @@ use App\Models\Circuit;
 
 class CircuitController extends Controller
 {
-    public function circuit()
+    public function circuitGet()
     {
-        return view('circuit');
+        $circuit = circuit::all();
+        return view('circuit' , ['circuit' => $circuit]);
 
     }
 }

@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+
+
+
 @section('content')
     <div class="container">
         <h2>Add Score</h2>
@@ -27,7 +30,12 @@
 
             <div class="form-group">
                 <label for="circuit">Circuit:</label>
-                <input type="text" class="form-control" id="circuit" name="circuit" required>
+                <select class="form-control" id="circuit_name" name="circuit_name" required>
+                    <option value="-1" selected>Select Circuit</option> <!-- Standaardoptie -->
+                    @foreach($circuit as $cir)
+                        <option value="{{ $cir->id }}">{{ $cir->name }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="form-group">
@@ -38,4 +46,6 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
+
 @endsection
+
