@@ -30,10 +30,9 @@ Route::get('/scoreboard', [ScoreboardController::class, 'getScoreboard'])->name(
 
 Route::get('/scoreboard', [ScoreboardController::class, 'index'])->name('scoreboard.index');
 
-
 Route::get('/trophies', [App\Http\Controllers\TrophyController::class, 'index'])->name('trophies');
 
-Route::get('/scoreboard/create', [ScoreboardController::class, 'addscore'])->name('scoreboard.addscore');
+Route::get('/scoreboard/addscore', [ScoreboardController::class, 'addscore'])->name('addscore');
 //Route::post('/scoreboard/create', [ScoreboardController::class, 'store'])->name('scoreboard.store');
 
 Route::get('/scoreboard', [ScoreboardController::class, 'getScoreboard'])->name('scoreboard.getScoreboard');

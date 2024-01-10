@@ -46,7 +46,7 @@ class ScoreboardController extends Controller
         $score->save();
 
         // Keer terug naar een bepaalde weergave of route
-        return redirect()->route('scoreboard.index')->with('success', 'Score is succesvol toegevoegd!');
+        return redirect()->route('scoreboard.addscore')->with('success', 'Score is succesvol toegevoegd!');
     }
 
     public function getTime()
@@ -87,8 +87,9 @@ class ScoreboardController extends Controller
         $model->circuits_id = $request->input('circuit_name');
         $model->date = $request->input('date');
         $model->drivers_id = '1';
-
         $model->save();
+
+        return view('addscore');
     }
 
     public function store(Request $request)

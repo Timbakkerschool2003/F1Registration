@@ -6,7 +6,7 @@
 @section('content')
     <div class="container">
         <h2>Add Score</h2>
-        <form method="post" action="{{ route('scoreboard.store') }}">
+        <form method="post" action="{{ route('addscore') }}">
             @csrf
             <div class="form-group">
                 <label for="time">Tijd:</label>
