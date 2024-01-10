@@ -22,6 +22,10 @@
         img {
             width: 100px;
         }
+
+        .nav-item {
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
