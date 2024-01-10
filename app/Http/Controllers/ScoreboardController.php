@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Team;
 use App\Models\Driver;
 use App\Models\Scoreboard;
+use Carbon\Carbon;
+
 
 
 class ScoreboardController extends Controller
@@ -60,25 +62,32 @@ class ScoreboardController extends Controller
 
     public function getScoreboard()
     {
-        $scoreboards = DB::table('scoreboard')
-            ->join('drivers', 'scoreboard.drivers_id', '=', 'drivers.id')
+        $scoreboards = DB::table('scoreboards')
+            ->join('drivers', 'scoreboards.drivers_id', '=', 'drivers.id')
             ->join('teams', 'drivers.teams_id', '=', 'teams.id')
-            ->select('scoreboard.time', 'drivers.name as driver_name', 'teams.name as team_name', 'scoreboard.date')
+            ->select('scoreboards.time', 'drivers.name as driver_name', 'teams.name as team_name', 'scoreboards.date')
             ->get();
 
         return view('scoreboard', compact('scoreboards'));
     }
 
-    public function create()
+    public function create(Request $request)
     {
 
+        alert("test");
+
+        $request->validate([
+            'time' => 'required',
+            'team_name' => 'required',
+            'circuit_name' => 'required',
+        ]);
 
         $model = new scoreboard();
 
-        $model->time = '10:10:10';
-        $model->teams_id = '1';
-        $model->circuits_id = '2';
-        $model->date = '';
+        $model->time = $request->input('time');
+        $model->teams_id = $request->input('team_name');
+        $model->circuits_id = $request->input('circuit_name');
+        $model->date = $request->input('date');
         $model->drivers_id = '1';
 
         $model->save();
