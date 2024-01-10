@@ -85,7 +85,7 @@
                     <li class="nav-item dropdown">
                         <a id="navbarDropdownScoreboard" class="nav-link dropdown-toggle" href="#" role="button"
                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            Scorebord
+                            Scoreboard
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-begin" aria-labelledby="navbarDropdownScoreboard">
