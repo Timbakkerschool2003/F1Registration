@@ -19,10 +19,10 @@ class ProfileController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function showprofiles()
     {
-        $profiles = Profile::all();
-        return view('profiles.index', compact('profiles'));
+        $profiles = profile::all();
+        return view('profiles.showprofiles', compact('profiles'));
     }
 
     /**

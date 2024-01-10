@@ -53,12 +53,12 @@
                         <div class="dropdown-menu dropdown-menu-begin" aria-labelledby="navbarDropdown">
                             <ul class="navbar-nav me-auto">
                                 <li class="nav-item">
-                                    <a class="dropdown-item" href="/profiles">
+                                    <a class="dropdown-item" href="{{route('profiles.showprofiles')}}">
                                         Bekijken
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="dropdown-item" href="/profiles/create">
+                                    <a class="dropdown-item" href="{{route('scoreboard.getScoreboard')}}">
                                          Toevoegen
                                     </a>
                                 </li>
@@ -91,12 +91,12 @@
                         <div class="dropdown-menu dropdown-menu-begin" aria-labelledby="navbarDropdownScoreboard">
                             <ul class="navbar-nav me-auto">
                                 <li class="nav-item">
-                                    <a class="dropdown-item" href=" {{route('scoreboard.getScoreboard')}}">
+                                    <a class="dropdown-item" href=" {{route('scoreboard.addscore')}}">
                                         Bekijken
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="dropdown-item" href="{{ route('scoreboard.create') }}">
+                                    <a class="dropdown-item" href="{{ route('scoreboard.addscore') }}">
                                         Toevoegen
                                     </a>
                                 </li>

@@ -51,10 +51,10 @@ class ScoreboardController extends Controller
 
     public function getTime()
     {
-        $scoreboards = DB::table('scoreboard')
-            ->join('drivers', 'scoreboard.drivers_id', '=', 'drivers.id')
+        $scoreboards = DB::table('scoreboards')
+            ->join('drivers', 'scoreboards.drivers_id', '=', 'drivers.id')
             ->join('teams', 'drivers.teams_id', '=', 'teams.id')
-            ->select('scoreboard.time', 'drivers.name as driver_name', 'teams.name as team_name')
+            ->select('scoreboards.time', 'drivers.name as driver_name', 'teams.name as team_name')
             ->get();
 
         return view('home', compact('scoreboards'));
@@ -71,10 +71,8 @@ class ScoreboardController extends Controller
         return view('scoreboard', compact('scoreboards'));
     }
 
-    public function create(Request $request)
+    public function addscore(Request $request)
     {
-
-        alert("test");
 
         $request->validate([
             'time' => 'required',

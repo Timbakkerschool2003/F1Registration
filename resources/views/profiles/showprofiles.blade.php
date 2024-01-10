@@ -1,32 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-    <body style="background-image: url('/images/background.jpg'); background-size: cover; background-repeat: no-repeat;">
-
     <div class="container">
         <div class="col-md-12 mt-3">
             <div class="card border">
                 <div class="card-body">
                     <div class="text-center mb-4">
-                        <h2>Scoreboard</h2>
+                        <h2>Profielen</h2>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-                                <th scope="col">Driver Name</th>
-                                <th scope="col">Time</th>
-                                <th scope="col">Team</th>
-                                <th scope="col">Datum</th>
+                                <th scope="col">Voornaam</th>
+                                <th scope="col">Achternaam</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($scoreboards as $scoreboard)
+                            @foreach($profiles as $profile)
                                 <tr>
-                                    <td>{{ $scoreboard->driver_name }}</td>
-                                    <td>{{ $scoreboard->time }}</td>
-                                    <td>{{ $scoreboard->team_name }}</td>
-                                    <td>{{ $scoreboard->date }}</td>
+                                    <td>{{ $profile->firstname }}</td>
+                                    <td>{{ $profile->lastname }}</td>
                                 </tr>
                             @endforeach
                             </tbody>
