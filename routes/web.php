@@ -30,6 +30,8 @@ Route::get('/teams', [TeamsController::class, 'teamsOphalen'])->name('teams');
 Route::get('/trophies', [App\Http\Controllers\TrophyController::class, 'index'])->name('trophies');
 
 Route::get('/scoreboard/addscore', [ScoreboardController::class, 'addscore'])->name('addscore');
+Route::get('/scoreboard/addscore', [ScoreboardController::class, 'teamsOphalen'])->name('teamsOphalen');
+
 
 //Route::get('/scoreboard/addscore', [TeamsController::class, 'teamsOphalen'])->name('addscore');
 

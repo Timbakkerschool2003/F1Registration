@@ -73,21 +73,20 @@ class ScoreboardController extends Controller
 
     public function addscore(Request $request)
     {
-        $request->validate([
-            'time' => 'required',
-            'team_name' => 'required',
-            'circuit_name' => 'required',
-        ]);
-
-        $model = new scoreboard();
-
-        $model->time = $request->input('time');
-        $model->teams_id = $request->input('team_name');
-        $model->circuits_id = $request->input('circuit_name');
-        $model->date = $request->input('date');
-        $model->drivers_id = '1';
-        $model->save();
-
+//        $request->validate([
+//            'time' => 'required',
+//            'team_name' => 'required',
+//            'circuit_name' => 'required',
+//        ]);
+//
+//        $model = new scoreboard();
+//
+//        $model->time = $request->input('time');
+//        $model->teams_id = $request->input('team_name');
+//        $model->circuits_id = $request->input('circuit_name');
+//        $model->date = $request->input('date');
+//        $model->drivers_id = '1';
+//        $model->save();
         return view('addscore');
     }
 
