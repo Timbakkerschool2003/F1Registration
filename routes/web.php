@@ -40,7 +40,9 @@ Route::get('/scoreboard/addscore', [TeamsController::class, 'teamsOphalen'])->na
 
 Route::get('/scoreboard', [ScoreboardController::class, 'getScoreboard'])->name('scoreboard.getScoreboard');
 
-Route::get('/circuit', [CircuitController::class, 'circuit'])->name('circuit');
+Route::get('/circuit', [TeamsController::class, 'teamsOphalen'])->name('teams');
+Route::get('/circuit', [TeamsController::class, 'circuitOphalen'])->name('circuit');
+
 
 Route::resource('profiles', ProfileController::class);
 

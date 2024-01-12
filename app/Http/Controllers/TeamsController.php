@@ -10,8 +10,13 @@ class TeamsController extends Controller
     public function teamsOphalen()
     {
         $teams = Team::all();
+        return view('teams' , ['teams' => $teams]);
+    }
+
+    public function circuitOphalen()
+    {
         $circuit = Circuit::all();
-        return view('teams' , ['teams' => $teams], ['circuit' => $circuit]);
+        return view('circuit' , ['circuit' => $circuit]);
     }
 
 }
