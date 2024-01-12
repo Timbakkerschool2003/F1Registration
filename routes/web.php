@@ -26,22 +26,21 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 
 Route::get('/teams', [TeamsController::class, 'teamsOphalen'])->name('teams');
 
-Route::get('/scoreboard', [ScoreboardController::class, 'getScoreboard'])->name('scoreboard');
-
-Route::get('/scoreboard', [ScoreboardController::class, 'index'])->name('scoreboard.index');
 
 Route::get('/trophies', [App\Http\Controllers\TrophyController::class, 'index'])->name('trophies');
 
-Route::get('/scoreboard/addscore', [ScoreboardController::class, 'index'])->name('addscore.index');
 Route::get('/scoreboard/addscore', [ScoreboardController::class, 'addscore'])->name('addscore');
-Route::get('/scoreboard/addscore', [TeamsController::class, 'teamsOphalen'])->name('addscore');
 
-Route::get('/scoreboard', [ScoreboardController::class, 'getScoreboard'])->name('scoreboard.getScoreboard');
+//Route::get('/scoreboard/addscore', [TeamsController::class, 'teamsOphalen'])->name('addscore');
+
+Route::get('/scoreboard', [ScoreboardController::class, 'getScoreboards'])->name('getScoreboards');
 
 Route::get('/circuit', [TeamsController::class, 'teamsOphalen'])->name('teams');
 Route::get('/circuit', [TeamsController::class, 'circuitOphalen'])->name('circuit');
 
 Route::get('/indexProfiles', [ProfileController::class, 'indexProfiles'])->name('indexProfiles');
+Route::get('/create', [ProfileController::class, 'createProfiles'])->name('createProfiles');
+
 
 Route::resource('profiles', ProfileController::class);
 

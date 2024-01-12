@@ -41,7 +41,7 @@
     </style>
     </head>
     <body>
-    <form class="formCreate" action="login.php" method="post">
+    <form class="formCreate" method="post">
         <label for="naam">Naam:</label>
         <input type="text" id="naam" name="naam" required>
 

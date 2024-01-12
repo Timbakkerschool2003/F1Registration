@@ -58,7 +58,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="dropdown-item" href="{{route('createProfiles')}}">
+                                    <a class="dropdown-item" href="{{ route('createProfiles') }}">
                                          Toevoegen
                                     </a>
                                 </li>
@@ -91,7 +91,7 @@
                         <div class="dropdown-menu dropdown-menu-begin" aria-labelledby="navbarDropdownScoreboard">
                             <ul class="navbar-nav me-auto">
                                 <li class="nav-item">
-                                    <a class="dropdown-item" href="scoreboard">
+                                    <a class="dropdown-item" href="{{ route('getScoreboards') }}">
                                         Bekijken
                                     </a>
                                 </li>
