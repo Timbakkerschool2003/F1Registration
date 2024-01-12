@@ -24,7 +24,7 @@ Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->na
 
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 
-Route::get('/teams', [TeamsController::class, 'index'])->name('teams');
+Route::get('/teams', [TeamsController::class, 'teamsOphalen'])->name('teams');
 
 Route::get('/scoreboard', [ScoreboardController::class, 'getScoreboard'])->name('scoreboard');
 
@@ -33,6 +33,9 @@ Route::get('/scoreboard', [ScoreboardController::class, 'index'])->name('scorebo
 Route::get('/trophies', [App\Http\Controllers\TrophyController::class, 'index'])->name('trophies');
 
 Route::get('/scoreboard/addscore', [ScoreboardController::class, 'index'])->name('addscore.index');
+Route::get('/scoreboard/addscore', [ScoreboardController::class, 'addscore'])->name('addscore');
+Route::get('/scoreboard/addscore', [TeamsController::class, 'teamsOphalen'])->name('addscore');
+
 //Route::post('/scoreboard/create', [ScoreboardController::class, 'store'])->name('scoreboard.store');
 
 Route::get('/scoreboard', [ScoreboardController::class, 'getScoreboard'])->name('scoreboard.getScoreboard');

@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Circuit;
 use App\Models\Team;
 
 class TeamsController extends Controller
 {
-    public function index()
+    public function teamsOphalen()
     {
         $teams = Team::all();
-        return view('teams', ['teams' => $teams]);
+        $circuit = Circuit::all();
+        return view('teams' , ['teams' => $teams], ['circuit' => $circuit]);
     }
+
 }
