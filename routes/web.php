@@ -24,7 +24,7 @@ Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->na
 
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 
-Route::get('/teams', [TeamsController::class, 'index'])->name('teams');
+Route::get('/teams', [TeamsController::class, 'teamsOphalen'])->name('teams');
 
 Route::get('/scoreboard', [ScoreboardController::class, 'getScoreboard'])->name('scoreboard');
 

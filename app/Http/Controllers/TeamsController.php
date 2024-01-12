@@ -11,7 +11,7 @@ class TeamsController extends Controller
     {
         $teams = Team::all();
         $circuit = Circuit::all();
-        return view('addscore' , ['teams' => $teams], ['circuit' => $circuit]);
+        return view('teams' , ['teams' => $teams], ['circuit' => $circuit]);
     }
 
 }
