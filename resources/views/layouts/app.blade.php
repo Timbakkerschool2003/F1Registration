@@ -32,8 +32,8 @@
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light navbar-bg shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="images\Logo-f1.jpg" class="" />
+            <a class="navbar-brand" href="{{ url('/home') }}">
+                <img src="\images\Logo-f1.jpg" class="" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
