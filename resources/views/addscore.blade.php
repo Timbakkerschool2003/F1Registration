@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h2>Add Score</h2>
-        <form method="post" action="{{ route('addscore') }}">
+        <form method="post">
             @csrf
             <div class="form-group">
                 <label for="time">Tijd:</label>
