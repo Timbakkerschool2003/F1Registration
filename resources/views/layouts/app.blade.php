@@ -53,7 +53,7 @@
                         <div class="dropdown-menu dropdown-menu-begin" aria-labelledby="navbarDropdown">
                             <ul class="navbar-nav me-auto">
                                 <li class="nav-item">
-                                    <a class="dropdown-item" href="{{route('profiles.showprofiles')}}">
+                                    <a class="dropdown-item" href="">
                                         Bekijken
                                     </a>
                                 </li>

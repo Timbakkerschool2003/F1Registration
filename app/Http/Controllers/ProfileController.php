@@ -22,16 +22,15 @@ class ProfileController extends Controller
     public function showprofiles()
     {
         $profiles = profile::all();
-        return view('profiles.showprofiles', compact('profiles'));
+        return view('showprofiles', compact('profiles'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function createProfiles()
+    public function create()
     {
-        print ("hallo");
-        return view('profiles.create');
+        return view('create');
     }
 
     /**
@@ -49,7 +48,7 @@ class ProfileController extends Controller
 
         Profile::create($request->all());
 
-        return redirect()->route('profiles.index')->with('succes', 'Profile created');
+        return redirect()->route('index')->with('succes', 'Profile created');
     }
 
     /**
@@ -57,7 +56,7 @@ class ProfileController extends Controller
      */
     public function show(Profile $profile)
     {
-        return view('profiles.show', compact('profile'));
+        return view('show', compact('profile'));
     }
 
     /**
@@ -69,7 +68,7 @@ class ProfileController extends Controller
             abort(403, 'Unauthorized action.');
         }
 
-        return view('profiles.edit', compact('profile'));
+        return view('edit', compact('profile'));
     }
 
     /**
@@ -89,7 +88,7 @@ class ProfileController extends Controller
 
         $profile->update($request->all());
 
-        return redirect()->route('profiles.index')
+        return redirect()->route('index')
             ->with('success', 'Profile updated successfully.');
     }
 
@@ -100,7 +99,7 @@ class ProfileController extends Controller
     {
         $profile->delete();
 
-        return redirect()->route('profiles.index')
+        return redirect()->route('index')
             ->with('success', 'Profile deleted successfully.');
     }
 }
