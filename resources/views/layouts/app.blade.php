@@ -53,12 +53,12 @@
                         <div class="dropdown-menu dropdown-menu-begin" aria-labelledby="navbarDropdown">
                             <ul class="navbar-nav me-auto">
                                 <li class="nav-item">
-                                    <a class="dropdown-item" href="">
+                                    <a class="dropdown-item" href="{{ route('indexProfiles') }}">
                                         Bekijken
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="dropdown-item" href="{{route('profiles.create')}}">
+                                    <a class="dropdown-item" href="{{route('createProfiles')}}">
                                          Toevoegen
                                     </a>
                                 </li>

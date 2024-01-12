@@ -36,15 +36,13 @@ Route::get('/scoreboard/addscore', [ScoreboardController::class, 'index'])->name
 Route::get('/scoreboard/addscore', [ScoreboardController::class, 'addscore'])->name('addscore');
 Route::get('/scoreboard/addscore', [TeamsController::class, 'teamsOphalen'])->name('addscore');
 
-//Route::post('/scoreboard/create', [ScoreboardController::class, 'store'])->name('scoreboard.store');
-
 Route::get('/scoreboard', [ScoreboardController::class, 'getScoreboard'])->name('scoreboard.getScoreboard');
 
 Route::get('/circuit', [TeamsController::class, 'teamsOphalen'])->name('teams');
 Route::get('/circuit', [TeamsController::class, 'circuitOphalen'])->name('circuit');
 
+Route::get('/indexProfiles', [ProfileController::class, 'indexProfiles'])->name('indexProfiles');
 
 Route::resource('profiles', ProfileController::class);
 
-Route::get('/profiles', [ProfileController::class, 'showprofiles'])->name('profiles.showprofiles');
 

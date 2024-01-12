@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProfileRequest;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Models\Profile;
+use App\Models\Team;
 
 class ProfileController extends Controller
 {
@@ -14,6 +15,11 @@ class ProfileController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    public function indexProfiles(){
+        $indexProfiles = indexProfiles::all();
+        return view('indexProfiles' , ['indexProfiles' => $indexProfiles]);
     }
 
     /**
@@ -28,7 +34,7 @@ class ProfileController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function createProfiles()
     {
         return view('create');
     }
@@ -46,7 +52,7 @@ class ProfileController extends Controller
             'mobile' => 'required'
         ]);
 
-        Profile::create($request->all());
+        Profile::createProfiles($request->all());
 
         return redirect()->route('index')->with('succes', 'Profile created');
     }
