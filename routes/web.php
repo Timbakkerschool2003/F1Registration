@@ -34,7 +34,6 @@ Route::get('/circuit', [TeamsController::class, 'circuitOphalen'])->name('circui
 Route::get('/indexProfiles', [ProfileController::class, 'indexProfiles'])->name('indexProfiles');
 Route::get('/create', [ProfileController::class, 'createProfiles'])->name('createProfiles');
 
-
 Route::resource('profiles', ProfileController::class);
 
 
