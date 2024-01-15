@@ -6,6 +6,9 @@ use App\Http\Requests\StoreProfileRequest;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Models\Profile;
 use App\Models\Team;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
@@ -27,16 +30,43 @@ class ProfileController extends Controller
      */
     public function showprofiles()
     {
-        $profiles = profile::all();
+        $profiles = Profile::all(); // Use the Profile model instead of profile
+
         return view('showprofiles', compact('profiles'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function createProfiles()
+    public function showCreateForm()
     {
         return view('create');
+    }
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\Models\User
+     */
+    public function createProfile(Request $request)
+    {
+//        // Validate and process the form submission
+//        $data = $request->validate([
+//            'name' => 'required|string',
+//            'email' => 'required|email',
+//            'password' => 'required|min:8',
+//            // Add more validation rules as needed
+//        ]);
+//
+//        // Create a new profile based on the validated data
+//        $profile = $this->createProfile($data);
+//        dd($data);
+//        // Redirect or perform any other actions
+//        //return redirect()->route('home');
+
+        $newUser = User::create([
+            'name' =>  $request->input('name'),
+            'email' =>  $request->input('email'),
+            'password' =>  $request->input('password')
+        ]);
+
+        return redirect()->route('home')->with('succes', 'Profile created');
     }
 
     /**

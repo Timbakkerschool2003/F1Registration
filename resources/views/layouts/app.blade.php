@@ -58,11 +58,10 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="dropdown-item" href="{{ route('createProfiles') }}">
-                                         Toevoegen
+                                    <a class="dropdown-item" href="{{ route('createProfile') }}">
+                                        Toevoegen
                                     </a>
                                 </li>
-
                             </ul>
 
                         </div>
