@@ -53,8 +53,18 @@ class User extends Authenticatable
         return $this->belongsTo(Team::class);
     }
 
-    public function trophies(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+
+    public function trophies()
     {
-        return $this->belongsToMany(Trophy::class, 'drivers_has_trophys', 'drivers_id', 'trophys_id');
+//        return $this->belongsToMany(Trophy::class, 'users_has_trophys', 'users_id', 'trophys_id')
+//            ->selectRaw('users_id, count(trophys_id) as trophy_count')
+//            ->groupBy('users_id');
+
+        $trophys = Trophy::all();
+        return view('teams' , ['teams' => $teams]);
     }
+
+
+
+
 }

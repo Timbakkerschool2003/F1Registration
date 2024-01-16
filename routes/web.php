@@ -22,7 +22,10 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 
 Route::get('/teams', [TeamsController::class, 'teamsOphalen'])->name('teams');
 
-Route::get('/trophies', [TrophyController::class, 'index'])->name('trophies');
+//Route::get('/trophies', [TrophyController::class, 'haalAlleTrophyGegevensOp'])->name('trophies');
+//Route::get('/trophies', [TrophyController::class, 'voorbeeldGebruik'])->name('trophies');
+Route::get('/trophies', [TrophyController::class, 'voorbeeldGebruik'])->name('trophies');
+
 
 Route::get('/addscore', [ScoreboardController::class, 'addscore'])->name('addscore');
 Route::post('/addscore', [ScoreboardController::class, 'CreateScore'])->name('addscore');

@@ -3,26 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Trophy;
-use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class TrophyController extends Controller
 {
-    public function index()
-    {
-        // Note: Use 'User' instead of 'users'
-        $users = User::withCount([
-            'trophies as gold_count' => function ($query) {
-                $query->where('name', 'gold');
-            },
-            'trophies as silver_count' => function ($query) {
-                $query->where('name', 'silver');
-            },
-            'trophies as bronze_count' => function ($query) {
-                $query->where('name', 'bronze');
-            },
-        ])->get();
+    public function haalAlleTrophyGegevensOp() {
+        // Gebruik het juiste model (vervang Trophy door het werkelijke modelnaam)
+        $trophyGegevens = DB::table('users_has_trophys')->get();
 
-        return view('trophies', ['users' => $users]);
+        // Retourneer de opgehaalde gegevens
+        return $trophyGegevens;
+    }
+
+
+    // Voorbeeld van het gebruik van de functie
+    public function voorbeeldGebruik() {
+        // Roep de functie aan om alle trophy gegevens op te halen
+        $trophyGegevens = $this->haalAlleTrophyGegevensOp();
+        dd($trophyGegevens);
+
+        // Stuur de gegevens door naar de view 'trophies.blade.php'
+        return view('trophies', ['trophyGegevens' => $trophyGegevens]);
+
     }
 }

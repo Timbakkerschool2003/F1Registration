@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{--@extends('layouts.app')--}}
 
 @section('content')
     <div class="container">
@@ -19,14 +19,8 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($drivers as $driver)
-                                <tr>
-                                    <td>{{ $driver->name }}</td>
-                                    <td>{{ $driver->gold_count }}</td>
-                                    <td>{{ $driver->silver_count }}</td>
-                                    <td>{{ $driver->bronze_count }}</td>
-                                </tr>
-                            @endforeach
+
+
                             </tbody>
                         </table>
                     </div>
