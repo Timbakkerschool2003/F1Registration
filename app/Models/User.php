@@ -47,4 +47,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function team(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Team::class);
+    }
+
+    public function trophies(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Trophy::class, 'drivers_has_trophys', 'drivers_id', 'trophys_id');
+    }
 }
