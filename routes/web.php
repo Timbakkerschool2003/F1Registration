@@ -25,8 +25,10 @@ Route::get('/teams', [TeamsController::class, 'teamsOphalen'])->name('teams');
 Route::get('/trophies', [TrophyController::class, 'index'])->name('trophies');
 
 Route::get('/addscore', [ScoreboardController::class, 'addscore'])->name('addscore');
+Route::post('/addscore', [ScoreboardController::class, 'CreateScore'])->name('addscore');
 
 Route::get('/scoreboard', [ScoreboardController::class, 'getScoreboards'])->name('getScoreboards');
+Route::post('/scoreboard/create', [ScoreboardController::class, 'create'])->name('scoreboard.create');
 
 Route::get('/circuit', [TeamsController::class, 'teamsOphalen'])->name('teams');
 Route::get('/circuit', [TeamsController::class, 'circuitOphalen'])->name('circuit');
