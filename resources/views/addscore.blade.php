@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h2>Add Score</h2>
-        <form method="post" action="{{ route('create') }}"> <!-- Voeg de actie toe voor het verzenden van het formulier -->
+        <form method="post" action="{{ route('create') }}">
             @csrf
             <div class="form-group">
                 <label for="time">Tijd:</label>

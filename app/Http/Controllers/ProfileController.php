@@ -66,7 +66,7 @@ class ProfileController extends Controller
             'password' =>  $request->input('password')
         ]);
 
-        return redirect()->route('home')->with('succes', 'Profile created');
+        return view('create');
     }
 
     /**
