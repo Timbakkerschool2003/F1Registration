@@ -23,9 +23,9 @@ class ScoreboardController extends Controller
     public function getTime()
     {
         $scoreboards = DB::table('scoreboards')
-            ->join('drivers', 'scoreboards.drivers_id', '=', 'drivers.id')
-            ->join('teams', 'drivers.teams_id', '=', 'teams.id')
-            ->select('scoreboards.time', 'drivers.name as driver_name', 'teams.name as team_name')
+            ->join('users', 'scoreboards.users_id', '=', 'users.id')
+            ->join('teams', 'scoreboards.teams_id', '=', 'teams.id')
+            ->select('scoreboards.time', 'users.name as users_name', 'teams.name as team_name')
             ->get();
 
         return view('home', compact('scoreboards'));
@@ -33,6 +33,10 @@ class ScoreboardController extends Controller
 
     public function getScoreboards()
     {
+
+        $scoreboards = scoreboard::all();
+        return view('scoreboard', compact('scoreboards'));
+
 
     }
 

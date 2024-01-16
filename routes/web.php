@@ -37,5 +37,6 @@ Route::get('/indexProfiles', [ProfileController::class, 'indexProfiles'])->name(
 
 Route::get('/create', [ProfileController::class, 'showCreateForm'])->name('createProfile');
 Route::post('/create', [ProfileController::class, 'createProfile'])->name('createProfile');
+Route::post('/create', 'YourController@create')->name('create');
 
 Route::resource('profiles', ProfileController::class);

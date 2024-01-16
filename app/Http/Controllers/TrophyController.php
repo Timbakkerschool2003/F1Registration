@@ -24,4 +24,8 @@ class TrophyController extends Controller
 
         return view('trophies', ['drivers' => $drivers]);
     }
+
+    public function TrophyInsert(){
+
+    }
 }
