@@ -22,7 +22,7 @@ class ProfileController extends Controller
 
     public function indexProfiles(){
         $profiles = profile::all();
-        return view('showprofiles', compact('profiles'));
+        return view('indexProfiles', compact('profiles'));
     }
 
     /**
