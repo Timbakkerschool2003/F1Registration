@@ -44,4 +44,21 @@ class TrophyController extends Controller
     {
         return $this->belongsTo(Trophy::class, 'trophys_id');
     }
+
+    public function getTrophies()
+    {
+        $trophies = Trophy::all();
+
+        return view('addtrophy', ['trophies' => $trophies]);
+    }
+
+    public function processTrophyForm(Request $request)
+    {
+        $selectedTrophyId = $request->input('trophy');
+
+        // Doe iets met het geselecteerde trofee-id, bijvoorbeeld opslaan in de database
+
+        return redirect()->route('add_trophy')->with('success', 'Trophy selected successfully.');
+    }
+
 }

@@ -73,11 +73,39 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
-                        <a id="navbar" class="nav-link" href="{{ route('trophies') }}">
-                            Trophies
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdownScoreboard" class="nav-link dropdown-toggle" href="{{ route('trophies') }}" role="button"
+                           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            Trofeeën
                         </a>
+
+                        <div class="dropdown-menu dropdown-menu-begin" aria-labelledby="navbarDropdownScoreboard">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="dropdown-item" href="{{ route('trophies') }}">
+                                        Bekijken
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" href="">
+                                        Toevoegen
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
