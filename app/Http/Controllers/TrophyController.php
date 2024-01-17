@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Trophy;
+use App\Models\User;
+use App\Models\UserHasTrophy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,13 +20,28 @@ class TrophyController extends Controller
 
 
     // Voorbeeld van het gebruik van de functie
-    public function voorbeeldGebruik() {
-        // Roep de functie aan om alle trophy gegevens op te halen
-        $trophyGegevens = $this->haalAlleTrophyGegevensOp();
-        dd($trophyGegevens);
+    public function haalAlleGegevensOp()
+    {
+        // Ophalen van trophy-gegevens met gebruikersinformatie
+        $trophyData = DB::table('users_has_trophys')->get();
 
-        // Stuur de gegevens door naar de view 'trophies.blade.php'
-        return view('trophies', ['trophyGegevens' => $trophyGegevens]);
+        // Ophalen van profielgegevens van gebruikers
+        $profiles = User::with('profile')->get();
 
+        return view('trophies', compact('trophyData', 'profiles'));
+    }
+
+
+
+    protected $table = 'users_has_trophys';
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'users_id');
+    }
+
+    public function trophy()
+    {
+        return $this->belongsTo(Trophy::class, 'trophys_id');
     }
 }

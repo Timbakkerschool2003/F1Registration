@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
@@ -22,9 +21,12 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 
 Route::get('/teams', [TeamsController::class, 'teamsOphalen'])->name('teams');
 
-//Route::get('/trophies', [TrophyController::class, 'haalAlleTrophyGegevensOp'])->name('trophies');
-//Route::get('/trophies', [TrophyController::class, 'voorbeeldGebruik'])->name('trophies');
-Route::get('/trophies', [TrophyController::class, 'voorbeeldGebruik'])->name('trophies');
+// Commenting out the old /trophies routes
+// Route::get('/trophies', [TrophyController::class, 'haalAlleTrophyGegevensOp'])->name('trophies');
+// Route::get('/trophies', [TrophyController::class, 'voorbeeldGebruik'])->name('trophies');
+
+// Adding the new /trophies route
+Route::get('/trophies', [TrophyController::class, 'haalAlleGegevensOp'])->name('trophies');
 
 
 Route::get('/addscore', [ScoreboardController::class, 'addscore'])->name('addscore');

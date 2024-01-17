@@ -1,31 +1,45 @@
-{{--@extends('layouts.app')--}}
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
-        <div class="col-md-12 mt-3">
-            <div class="card border">
-                <div class="card-body">
-                    <div class="text-center mb-4">
-                        <h2>Trophy Counts by Driver</h2>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
-                            <thead>
-                            <tr>
-                                <th scope="col">Racer</th>
-                                <th scope="col">Gold</th>
-                                <th scope="col">Silver</th>
-                                <th scope="col">Bronze</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+        <tbody>
+
+        @foreach ($profiles as $profile)
+            <?php var_dump($profiles); ?>
+                <?php highlight_string("<?php\n\$profiles = " . var_export($profiles, true) . ";\n?>");
+                ?>
 
 
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
+
+        @foreach($trophyData as $trophy)
+            <tr>
+                <td><?php
+
+                if($trophy->trophys_id == 1){
+                    echo "<br>";
+                    echo "gold";
+                    }
+
+                    if($trophy->trophys_id == 2){
+                    echo "<br>";
+                    echo "silver";
+                    }
+
+                    if($trophy->trophys_id == 3){
+                    echo "<br>";
+                    echo "bronze";
+                    }?></td>
+            </tr>
+
+            <?php
+
+
+
+?>
+        @endforeach
+
+        </tbody>
+        <!-- ... (existing code) ... -->
     </div>
 @endsection

@@ -64,7 +64,10 @@ class User extends Authenticatable
         return view('teams' , ['teams' => $teams]);
     }
 
-
+    public function trophiess(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(UserHasTrophy::class, 'users_id');
+    }
 
 
 }

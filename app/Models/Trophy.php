@@ -14,5 +14,8 @@ class Trophy extends Model
     {
         return $this->belongsToMany(Driver::class, 'drivers_has_trophys', 'trophys_id', 'drivers_id');
     }
-
+    public function users()
+    {
+        return $this->hasMany(UserHasTrophy::class, 'trophys_id');
+    }
 }
