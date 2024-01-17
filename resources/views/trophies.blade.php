@@ -2,62 +2,35 @@
 
 @section('content')
     <div class="container">
-        <tbody>
-
-        {{--        @foreach ($profiles as $profile)--}}
-        {{--        @endforeach--}}
-
-
-        {{--        @foreach ($profiles as $user)--}}
-        {{--            {{ $user->name }}--}}
-        {{--        @endforeach--}}
-
-
-        {{--        @foreach($trophyData as $trophy)--}}
-        {{--            <tr>--}}
-        {{--                <td><?php--}}
-
-        {{--                if($trophy->trophys_id == 1){--}}
-        {{--                    echo "<br>";--}}
-        {{--                    echo "gold";--}}
-        {{--                    }--}}
-
-        {{--                    if($trophy->trophys_id == 2){--}}
-        {{--                    echo "<br>";--}}
-        {{--                    echo "silver";--}}
-        {{--                    }--}}
-
-        {{--                    if($trophy->trophys_id == 3){--}}
-        {{--                    echo "<br>";--}}
-        {{--                    echo "bronze";--}}
-        {{--                    }?></td>--}}
-        {{--            </tr>--}}
-
-        {{--        @endforeach--}}
-        <!-- resources\views\your\view.blade.php -->
-
-        @php
-            $usersWithTrophies = \App\Models\UserHasTrophy::with('user', 'trophy')->get();
-        @endphp
-
-        @foreach ($usersWithTrophies as $userWithTrophy)
-            @php
-                $user = $userWithTrophy->user;
-                $trophy = $userWithTrophy->trophy;
-                //var_dump($userWithTrophy->trophy['trophyname']);
-                print('<br>');
-                var_dump($userWithTrophy->user['name']);
-/*                highlight_string("<?php\n\$profiles = " . var_export($userWithTrophy, true) . ";\n?>");*/
-
-            @endphp
-
-
-                <!-- Nu heb je toegang tot de gegevens van de gebruiker en de trofee -->
-            <!-- bijvoorbeeld: $user->name, $trophy->name -->
-        @endforeach
-
-        </tbody>
-
-        <!-- ... (existing code) ... -->
+        <div class="col-md-12 mt-3">
+            <div class="card border">
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        <h2>Trofeeën</h2>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th scope="col">Trofee</th>
+                                <th scope="col">Coureur</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @php
+                                $usersWithTrophies = \App\Models\UserHasTrophy::with('user', 'trophy')->get();
+                            @endphp
+                            @foreach ($usersWithTrophies as $userWithTrophy)
+                                <tr>
+                                    <td>{{ $userWithTrophy->trophy->trophyname }}</td>
+                                    <td>{{ $userWithTrophy->user->name }}</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
