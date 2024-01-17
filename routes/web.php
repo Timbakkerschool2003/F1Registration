@@ -6,6 +6,8 @@ use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\TrophyController;
+use App\Http\Controllers\PasswordController;
+
 
 Route::get('/', [UserController::class, 'index']);
 Route::get('/home', [ScoreboardController::class, 'getTime'])->name('get.time');
@@ -50,6 +52,11 @@ Route::post('/create', 'YourController@create')->name('create');
 Route::resource('profiles', ProfileController::class);
 
 Route::get('/indexProfiles', [UserController::class, 'index'])->name('indexProfiles');
-Route::get('/editProfile/{user}', [UserController::class, 'edit'])->name('editProfile');
-Route::put('/updateProfile/{user}', [UserController::class, 'update'])->name('updateProfile');
+Route::get('/edit/{user}', [UserController::class, 'edit'])->name('editProfile');
+Route::put('/update/{user}', [UserController::class, 'update'])->name('updateProfile');
 Route::delete('/destroyuser/{user}', [UserController::class, 'destroy'])->name('destroyUser');
+
+Route::get('/edit-password', [PasswordController::class, 'edit'])->name('editPassword');
+Route::post('/update-password', [PasswordController::class, 'update'])->name('updatePassword');
+
+

@@ -14,25 +14,43 @@ class UserController extends Controller
         return view('indexProfiles', compact('users'));
     }
 
+    public function create(Request $request)
+    {
+        // Add your logic for user creation here
+        // This method will handle the creation of a new user
+
+        return redirect()->route('indexProfiles')->with('success', 'User created successfully');
+    }
 
     public function edit(User $user)
     {
-        return view('editprofile', compact('user'));
+        return view('edit', compact('user'));
     }
 
     public function update(Request $request, User $user)
     {
-        $user->update($request->only(['name', 'email']));
-        $user->profile()->update($request->only(['firstname', 'lastname', 'mobile']));
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            // Add any other validation rules as needed
+        ]);
 
-        return redirect()->route('indexProfiles')->with('success', 'Profile updated successfully!');
+        $user->update([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            // Update other fields as needed
+        ]);
+
+        return redirect()->route('indexProfiles')->with('success', 'Profile updated successfully');
     }
 
     public function destroy(User $user)
     {
         $user->profile()->delete();
+        $user->detachTrophies();
         $user->delete();
 
         return redirect()->route('indexProfiles')->with('success', 'User and profile deleted successfully!');
     }
+
 }

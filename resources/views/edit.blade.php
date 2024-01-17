@@ -1,19 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{ route('profiles.update', $profile->id) }}" method="POST">
-        @csrf
-        @method('PUT')
+    <div class="container">
+        <form action="{{ route('updateProfile', $user) }}" method="POST">
+            @csrf
+            @method('PUT')
 
-        <label>First Name:</label>
-        <input type="text" name="firstname" value="{{ $profile->firstname }}">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" class="form-control" value="{{ $user->name }}">
+            </div>
 
-        <label>Last Name:</label>
-        <input type="text" name="lastname" value="{{ $profile->lastname }}">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" class="form-control" value="{{ $user->email }}">
+            </div>
 
-        <label>Mobile:</label>
-        <input type="text" name="mobile" value="{{ $profile->mobile }}">
-
-        <button type="submit">Update</button>
-    </form>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
 @endsection

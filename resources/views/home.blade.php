@@ -8,15 +8,14 @@
             <div class="col-md-6">
                 <div class="card border">
                     <div class="card-body">
-                        Welkom bij F1 Registration! Hier worden alle gegevens bijgehouden van de F1 stoel!
+                        Welkom in de razendsnelle wereld van het F1Registratie! Stap in de cockpit en laat je adrenaline stijgen terwijl we de grenzen van snelheid verkennen. Ons F1 registratiesysteem is meer dan zomaar een scorebord; het is de ultieme pitstop voor de fanatieke race-enthousiastelingen die altijd op zoek zijn naar de volgende bocht, de perfecte rondetijd en de glinstering van het podium.
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="card border">
                     <div class="card-body">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                    </div>
+                        Bereid je voor op een race-ervaring als nooit tevoren terwijl we jouw scores bijhouden, rivaliteiten aanwakkeren en je meenemen op een virtuele reis door de wereld van Formule 1. Ben jij klaar om de snelheid te omarmen, de adrenaline te voelen en jouw plaats op het erepodium te veroveren? Laat de motoren brullen en duik in het hart van de race met F1Registratie!                    </div>
                 </div>
             </div>
             <div class="col-md-12 mt-3">

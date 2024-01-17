@@ -34,6 +34,10 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsToMany(Trophy::class, 'users_has_trophys', 'users_id', 'trophys_id');
     }
+    public function detachTrophies()
+    {
+        $this->trophies()->detach();
+    }
 
     public function team()
     {
