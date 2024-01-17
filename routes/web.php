@@ -29,6 +29,7 @@ Route::get('/teams', [TeamsController::class, 'teamsOphalen'])->name('teams');
 Route::get('/trophies', [TrophyController::class, 'haalAlleGegevensOp'])->name('trophies');
 Route::get('/addtrophy', [TrophyController::class, 'getTrophies']);
 Route::post('/process_trophy_form', [TrophyController::class, 'processTrophyForm'])->name('process_trophy_form');
+Route::get('/addtrophy', [TrophyController::class, 'getAllTrophiesForLoggedInUser']);
 
 
 Route::get('/addscore', [ScoreboardController::class, 'addscore'])->name('addscore');

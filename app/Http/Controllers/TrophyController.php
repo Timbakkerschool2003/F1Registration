@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\UserHasTrophy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 
 class TrophyController extends Controller
 {
@@ -61,4 +63,20 @@ class TrophyController extends Controller
         return redirect()->route('add_trophy')->with('success', 'Trophy selected successfully.');
     }
 
+    public function getAllTrophiesForLoggedInUser()
+    {
+        // Controleer eerst of de gebruiker is ingelogd
+        if (Auth::check()) {
+            // Haal de ingelogde gebruiker op
+            $user = Auth::user();
+
+            // Haal alle trofeeën op voor de ingelogde gebruiker
+            $userTrophies = $user->trophies()->get();
+
+            return view('addtrophy', ['userTrophies' => $userTrophies]);
+        }
+
+        // Als de gebruiker niet is ingelogd, kun je hier een redirect of een foutmelding toevoegen.
+        return redirect()->route('login')->with('error', 'Je moet ingelogd zijn om deze pagina te bekijken.');
+    }
 }
