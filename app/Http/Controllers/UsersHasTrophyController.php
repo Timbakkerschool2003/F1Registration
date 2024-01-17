@@ -1,19 +1,18 @@
 <?php
 
+// app\Http\Controllers\YourController.php
+
 namespace App\Http\Controllers;
 
+use App\Models\UserHasTrophy;
 use Illuminate\Http\Request;
-use App\Models\UserHasTrophy; // Make sure to import the UserHasTrophy model
 
 class UsersHasTrophyController extends Controller
 {
-    public function getTrophyData()
+    public function index()
     {
-        // Retrieve data from the users_has_trophys table along with user names
-        $trophyData = userhastrophys::with('user')->get();
+        $usersWithTrophies = UserHasTrophy::with('user', 'trophy')->get();
 
-        // You can then pass $trophyData to your view or process it further as needed
-
-        return view('trophies', ['trophyGegevens' => $trophyData]);
+        return view('trophies', compact('usersWithTrophies'));
     }
 }

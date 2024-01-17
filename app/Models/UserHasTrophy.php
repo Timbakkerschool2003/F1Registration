@@ -1,21 +1,23 @@
 <?php
-// app\Models\UserHasTrophy.php
+// app\Models\UsersHasTrophy.php
 
 namespace App\Models;
-use App\Models\User;
-use App\Models\Trophy;
 
 use Illuminate\Database\Eloquent\Model;
 
-class userhastrophy extends Model
+class UserHasTrophy extends Model
 {
-    // ... (existing code)
+    protected $table = 'users_has_trophys';
 
+    // Vul dit aan met eventuele andere instellingen die je nodig hebt
+
+    // Relatie met de User
     public function user()
     {
         return $this->belongsTo(User::class, 'users_id');
     }
 
+    // Relatie met de Trophy
     public function trophy()
     {
         return $this->belongsTo(Trophy::class, 'trophys_id');

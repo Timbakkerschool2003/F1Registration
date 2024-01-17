@@ -10,6 +10,13 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+
+    public function trophies()
+    {
+        return $this->belongsToMany(Trophy::class, 'users_has_trophys', 'users_id', 'trophys_id');
+    }
+
+
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -52,22 +59,4 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Team::class);
     }
-
-
-    public function trophies()
-    {
-//        return $this->belongsToMany(Trophy::class, 'users_has_trophys', 'users_id', 'trophys_id')
-//            ->selectRaw('users_id, count(trophys_id) as trophy_count')
-//            ->groupBy('users_id');
-
-        $trophys = Trophy::all();
-        return view('teams' , ['teams' => $teams]);
-    }
-
-    public function trophiess(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-        return $this->hasMany(UserHasTrophy::class, 'users_id');
-    }
-
-
 }

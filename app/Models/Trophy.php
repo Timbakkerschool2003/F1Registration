@@ -16,6 +16,6 @@ class Trophy extends Model
     }
     public function users()
     {
-        return $this->hasMany(UserHasTrophy::class, 'trophys_id');
+        return $this->belongsToMany(User::class, 'users_has_trophys', 'trophys_id', 'users_id');
     }
 }
