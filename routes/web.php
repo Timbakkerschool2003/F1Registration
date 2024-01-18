@@ -33,6 +33,8 @@ Route::get('/addtrophy', [TrophyController::class, 'getTrophies']);
 Route::post('/process_trophy_form', [TrophyController::class, 'processTrophyForm'])->name('process_trophy_form');
 Route::get('/addtrophy', [TrophyController::class, 'getAllTrophiesForLoggedInUser']);
 Route::get('/addtrophy', [TrophyController::class, 'getTrophies'])->name('addtrophy');
+Route::delete('/remove_trophy/{trophy}', [TrophyController::class, 'destroy'])->name('remove_trophy');
+
 
 
 Route::get('/addscore', [ScoreboardController::class, 'addscore'])->name('addscore');

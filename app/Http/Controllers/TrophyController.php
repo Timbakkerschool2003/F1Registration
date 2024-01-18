@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
-
 class TrophyController extends Controller
 {
     public function haalAlleTrophyGegevensOp()
@@ -20,7 +19,6 @@ class TrophyController extends Controller
         // Retourneer de opgehaalde gegevens
         return $trophyGegevens;
     }
-
 
     // Voorbeeld van het gebruik van de functie
     public function haalAlleGegevensOp()
@@ -33,7 +31,6 @@ class TrophyController extends Controller
 
         return view('trophies', compact('trophyData', 'profiles'));
     }
-
 
     protected $table = 'users_has_trophys';
 
@@ -59,21 +56,19 @@ class TrophyController extends Controller
         return view('addtrophy', compact('trophies', 'userTrophies'));
     }
 
-
     public function processTrophyForm(Request $request)
     {
-        // Valideer het formuliergegevens indien nodig
-
         $selectedTrophyId = $request->input('trophy');
 
-        // Voeg een nieuwe rij toe aan de users_has_trophys tabel
+        // Check if the user already has the selected trophy
+        if (Auth::user()->trophies->contains($selectedTrophyId)) {
+            return redirect()->route('addtrophy')->with('error', 'Je hebt deze trofee al');
+        }
+
+        // If not, add the trophy to the user's trophies
         Auth::user()->trophies()->attach($selectedTrophyId);
-
-        // Doe iets met het geselecteerde trofee-id, bijvoorbeeld opslaan in de database
-
-        return redirect()->route('addtrophy')->with('success', 'Trophy selected successfully.');
+        return redirect()->route('addtrophy')->with('success', 'Trofee toegevoegd.');
     }
-
 
     public function getAllTrophiesForLoggedInUser()
     {
@@ -91,5 +86,15 @@ class TrophyController extends Controller
         // Als de gebruiker niet is ingelogd, kun je hier een redirect of een foutmelding toevoegen.
         return redirect()->route('login')->with('error', 'Je moet ingelogd zijn om deze pagina te bekijken.');
     }
-}
 
+    public function destroy(Trophy $trophy)
+    {
+        // Ensure the trophy belongs to the logged-in user
+        if (Auth::user()->trophies->contains($trophy)) {
+            Auth::user()->trophies()->detach($trophy);
+            return redirect()->route('addtrophy')->with('success', 'Trophy removed successfully!');
+        }
+
+        return redirect()->route('addtrophy')->with('error', 'Unable to remove the trophy.');
+    }
+}
