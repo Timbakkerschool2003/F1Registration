@@ -17,6 +17,7 @@ class HomeController extends Controller
         return view('home');
     }
 
+
     public function getTimePersonalHome()
     {
         $scoreboardsPersonal = DB::table('scoreboards')
@@ -24,6 +25,7 @@ class HomeController extends Controller
             ->join('teams', 'scoreboards.teams_id', '=', 'teams.id')
             ->join('circuits', 'scoreboards.circuits_id', '=', 'circuits.id')
             ->select('scoreboards.time', 'users.name as driver_name', 'teams.name as team_name', 'scoreboards.date', 'circuits.name as circuit_name')
+            ->orderBy('scoreboards.time', 'asc') // Order by time in ascending order
             ->get();
 
         $circuitDataHome = DB::table('scoreboards')
@@ -33,6 +35,7 @@ class HomeController extends Controller
 
         return view('home', compact('scoreboardsPersonal', 'circuitDataHome'));
     }
+
 
     public function getCircuitDataHome($scoreboardId)
     {

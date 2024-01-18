@@ -16,7 +16,6 @@ Route::get('/home', [HomeController::class, 'getTimePersonalHome'])->name('home'
 Route::get('/home/{scoreboardId}', [HomeController::class, 'getCircuitDataHome'])->name('home');
 
 
-
 Route::get('/edit-profile', [ProfileController::class]);
 
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -60,3 +59,5 @@ Route::post('/update-password', [PasswordController::class, 'update'])->name('up
 
 Route::get('/addscore', [ScoreboardController::class, 'addscore'])->name('addscore.create');
 Route::post('/addscore', [ScoreboardController::class, 'createScore'])->name('addscore.store');
+
+
