@@ -18,5 +18,10 @@ class Trophy extends Model
     {
         return $this->belongsToMany(User::class, 'users_has_trophys', 'trophys_id', 'users_id');
     }
+    public function isOwnedByUser($userId)
+    {
+        return $this->user_id === $userId;
+    }
+
 
 }
