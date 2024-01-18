@@ -49,7 +49,7 @@ Route::post('/create', [ProfileController::class, 'createProfile'])->name('creat
 
 Route::resource('profiles', ProfileController::class);
 
-Route::get('/indexProfiles', [UserController::class, 'index'])->name('indexProfiles');
+Route::get('/indexProfiles', [UserController::class, 'indexProfiles'])->name('indexProfiles');
 Route::get('/edit/{user}', [UserController::class, 'edit'])->name('editProfile');
 Route::put('/update/{user}', [UserController::class, 'update'])->name('updateProfile');
 Route::delete('/destroyuser/{user}', [UserController::class, 'destroy'])->name('destroyUser');

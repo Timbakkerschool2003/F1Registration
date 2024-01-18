@@ -8,7 +8,13 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+
     public function index()
+    {
+        $users = User::with('profile')->get();
+        return view('welcome', compact('users'));
+    }
+    public function indexProfiles()
     {
         $users = User::with('profile')->get();
         return view('indexProfiles', compact('users'));
