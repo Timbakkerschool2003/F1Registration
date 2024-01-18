@@ -83,7 +83,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="dropdown-item" href="">
+                                    <a class="dropdown-item" href="{{ route('addtrophy') }}">
                                         Toevoegen
                                     </a>
                                 </li>

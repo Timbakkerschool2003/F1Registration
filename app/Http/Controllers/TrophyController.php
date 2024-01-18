@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Auth;
 
 class TrophyController extends Controller
 {
-    public function haalAlleTrophyGegevensOp() {
+    public function haalAlleTrophyGegevensOp()
+    {
         // Gebruik het juiste model (vervang Trophy door het werkelijke modelnaam)
         $trophyGegevens = DB::table('users_has_trophys')->get();
 
@@ -34,7 +35,6 @@ class TrophyController extends Controller
     }
 
 
-
     protected $table = 'users_has_trophys';
 
     public function user()
@@ -47,21 +47,33 @@ class TrophyController extends Controller
         return $this->belongsTo(Trophy::class, 'trophys_id');
     }
 
+    // ...
+
     public function getTrophies()
     {
         $trophies = Trophy::all();
 
-        return view('addtrophy', ['trophies' => $trophies]);
+        // Check if the user is authenticated
+        $userTrophies = Auth::check() ? Auth::user()->trophies : collect();
+
+        return view('addtrophy', compact('trophies', 'userTrophies'));
     }
+
 
     public function processTrophyForm(Request $request)
     {
+        // Valideer het formuliergegevens indien nodig
+
         $selectedTrophyId = $request->input('trophy');
+
+        // Voeg een nieuwe rij toe aan de users_has_trophys tabel
+        Auth::user()->trophies()->attach($selectedTrophyId);
 
         // Doe iets met het geselecteerde trofee-id, bijvoorbeeld opslaan in de database
 
-        return redirect()->route('add_trophy')->with('success', 'Trophy selected successfully.');
+        return redirect()->route('addtrophy')->with('success', 'Trophy selected successfully.');
     }
+
 
     public function getAllTrophiesForLoggedInUser()
     {
@@ -80,3 +92,4 @@ class TrophyController extends Controller
         return redirect()->route('login')->with('error', 'Je moet ingelogd zijn om deze pagina te bekijken.');
     }
 }
+
