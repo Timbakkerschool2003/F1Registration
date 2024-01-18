@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -25,6 +24,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'password' => 'hashed',
     ];
 
+    // Relationships
     public function profile()
     {
         return $this->hasOne(Profile::class);
@@ -34,6 +34,7 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsToMany(Trophy::class, 'users_has_trophys', 'users_id', 'trophys_id');
     }
+
     public function detachTrophies()
     {
         $this->trophies()->detach();
@@ -44,6 +45,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsTo(Team::class);
     }
 
+    // Methods
     public static function createUser(array $data)
     {
         return static::query()->create([
@@ -65,5 +67,9 @@ class User extends Authenticatable implements MustVerifyEmail
     public function deleteWithProfile()
     {
         return $this->profile()->delete() && $this->delete();
+    }
+    public function scoreboards()
+    {
+        return $this->hasMany(Scoreboard::class, 'users_id');
     }
 }

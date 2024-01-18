@@ -10,4 +10,9 @@ class Team extends Model
     use HasFactory;
     protected $fillable = ['name'];
 
+    public function circuits()
+    {
+        return $this->hasMany(Circuit::class);
+    }
+
 }

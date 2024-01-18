@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 
 
+
 class ScoreboardController extends Controller
 {
 
@@ -54,24 +55,26 @@ class ScoreboardController extends Controller
                 'circuits.name as circuit_name',
                 'scoreboards.date'
             )
+            ->orderBy('scoreboards.time', 'asc') // Order by time in ascending order
             ->get();
 
         return view('scoreboard', compact('scoreboards'));
     }
 
 
-
-    public function addscore(Request $request)
+    public function addscore()
     {
-        $teams = $this->teamsOphalen();
-        $circuit = $this->circuitOphalen();
-        return view('addscore', compact('teams', 'circuit'));
+        $users = User::all();
+        $teams = Team::all();
+        $circuits = Circuit::all();
+
+        return view('addscore', compact('users', 'teams', 'circuits'));
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \App\Models\User
      */
     public function CreateNewScoreboard(Request $request)
@@ -82,7 +85,6 @@ class ScoreboardController extends Controller
             'password' => Hash::make($request['password']),
         ]);
     }
-
 
 
     public function teamsOphalen()
@@ -98,8 +100,61 @@ class ScoreboardController extends Controller
     }
 
 
+    public function create()
+    {
+        $users = User::all();
+        $teams = Team::all();
+        $circuits = Circuit::all();
+
+        return view('addscore.create', compact('users', 'teams', 'circuits'));
+    }
 
     public function store(Request $request)
     {
+        // Validate the request data as needed
+        $request->validate([
+            'users_id' => 'required',
+            'time' => 'required',
+            'teams_id' => 'required',
+            'circuits_id' => 'required',
+            'date' => 'required|date',
+        ]);
+
+        // Create a new scoreboard entry
+        Scoreboard::create([
+            'users_id' => $request->users_id,
+            'time' => $request->time,
+            'teams_id' => $request->teams_id,
+            'circuits_id' => $request->circuits_id,
+            'date' => $request->date,
+        ]);
+
+        return redirect()->route('scoreboard')->with('success', 'Score added successfully!');
     }
+
+    public function createScore(Request $request)
+    {
+        // Validate the request data
+        $request->validate([
+            'users_id' => 'required',
+            'time' => 'required',
+            'teams_id' => 'required',
+            'circuits_id' => 'required',
+            'date' => 'required|date',
+        ]);
+
+        // Create a new scoreboard entry in the database
+        Scoreboard::create([
+            'users_id' => $request->input('users_id'),
+            'time' => $request->input('time'),
+            'teams_id' => $request->input('teams_id'),
+            'circuits_id' => $request->input('circuits_id'),
+            'date' => $request->input('date'),
+        ]);
+
+        // Redirect back or to a success page
+        return redirect()->route('addscore.create')->with('success', 'Score added successfully!');
+    }
+
 }
+

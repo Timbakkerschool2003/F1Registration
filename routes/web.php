@@ -35,9 +35,6 @@ Route::get('/addtrophy', [TrophyController::class, 'getAllTrophiesForLoggedInUse
 Route::get('/addtrophy', [TrophyController::class, 'getTrophies'])->name('addtrophy');
 Route::delete('/remove_trophy/{trophy}', [TrophyController::class, 'destroy'])->name('remove_trophy');
 
-Route::get('/addscore', [ScoreboardController::class, 'addscore'])->name('addscore');
-Route::post('/addscore', [ScoreboardController::class, 'CreateScore'])->name('addscore');
-
 Route::get('/scoreboard', [ScoreboardController::class, 'getTimePersonal'])->name('scoreboard');
 Route::get('/scoreboard/circuit/{scoreboardId}', [ScoreboardController::class, 'getCircuitData'])->name('scoreboard');
 
@@ -60,3 +57,6 @@ Route::delete('/destroyuser/{user}', [UserController::class, 'destroy'])->name('
 
 Route::get('/edit-password', [PasswordController::class, 'edit'])->name('editPassword');
 Route::post('/update-password', [PasswordController::class, 'update'])->name('updatePassword');
+
+Route::get('/addscore', [ScoreboardController::class, 'addscore'])->name('addscore.create');
+Route::post('/addscore', [ScoreboardController::class, 'createScore'])->name('addscore.store');

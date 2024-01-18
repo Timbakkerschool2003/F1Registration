@@ -11,11 +11,15 @@ class Scoreboard extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['time', 'drivers_id', 'date', 'circuit'];
+    protected $fillable = ['time', 'users_id', 'teams_id', 'circuits_id', 'date'];
 
     // Relatie met de Driver
     public function driver()
     {
         return $this->belongsTo(Driver::class, 'drivers_id');
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'users_id');
     }
 }
