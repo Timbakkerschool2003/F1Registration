@@ -36,7 +36,7 @@
                                 <tbody>
                                 @foreach($scoreboards as $scoreboard)
                                     <tr>
-                                        <td>{{ $scoreboard->driver_name }}</td>
+                                        <td>{{ $scoreboard->users_name }}</td>
                                         <td>{{ $scoreboard->time }}</td>
                                         <td>{{ $scoreboard->team_name }}</td>
                                     </tr>

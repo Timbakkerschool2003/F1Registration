@@ -32,14 +32,64 @@
                             </tbody>
                         </table>
                     </div>
+
+                    <!-- Chart.js Line Chart -->
+                    <canvas id="scoreboardChart" width="400" height="200"></canvas>
                 </div>
             </div>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        setInterval(function() {
-            location.reload();
-        }, 15000);
+        // Extract data for the chart from PHP to JavaScript
+        var scoreboardData = @json($scoreboards);
+
+        // Log data to console for debugging
+        console.log('scoreboardData:', scoreboardData);
+
+        // Prepare data for the chart
+        var driverNames = scoreboardData.map(scoreboard => scoreboard.driver_name);
+        var times = scoreboardData.map(scoreboard => new Date(scoreboard.time).getTime());
+
+        // Log prepared data to console for debugging
+        console.log('driverNames:', driverNames);
+        console.log('times:', times);
+
+        // Chart.js Configuration
+        console.log('Chart.js Configuration');
+        console.log('Labels:', driverNames);
+        console.log('Data:', times);
+
+        var ctx = document.getElementById('scoreboardChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: driverNames,
+                datasets: [{
+                    label: 'Time',
+                    data: times,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Comment out the page refresh interval for testing
+        // setInterval(function() {
+        //     location.reload();
+        // }, 15000);
     </script>
+
+
+
+
 @endsection
