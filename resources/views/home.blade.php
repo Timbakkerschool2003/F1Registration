@@ -28,17 +28,20 @@
                             <table class="table table-bordered">
                                 <thead>
                                 <tr>
-                                    <th scope="col">Driver Name</th>
-                                    <th scope="col">Time</th>
+                                    <th scope="col">Coureur</th>
+                                    <th scope="col">Tijd</th>
                                     <th scope="col">Team</th>
+                                    <th scope="col">Circuit</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($scoreboards as $scoreboard)
+
+                                @foreach($scoreboardsPersonal as $scoreboard)
                                     <tr>
-                                        <td>{{ $scoreboard->users_name }}</td>
+                                        <td>{{ $scoreboard->driver_name }}</td>
                                         <td>{{ $scoreboard->time }}</td>
                                         <td>{{ $scoreboard->team_name }}</td>
+                                        <td>{{ $scoreboard->circuit_name }}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

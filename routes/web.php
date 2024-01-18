@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
@@ -8,9 +10,12 @@ use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\TrophyController;
 use App\Http\Controllers\PasswordController;
 
-
 Route::get('/', [UserController::class, 'index']);
 Route::get('/home', [ScoreboardController::class, 'getTime'])->name('get.time');
+Route::get('/home', [HomeController::class, 'getTimePersonalHome'])->name('home');
+Route::get('/home/{scoreboardId}', [HomeController::class, 'getCircuitDataHome'])->name('home');
+
+
 
 Route::get('/edit-profile', [ProfileController::class]);
 
@@ -23,11 +28,6 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 
 Route::get('/teams', [TeamsController::class, 'teamsOphalen'])->name('teams');
 
-// Commenting out the old /trophies routes
-// Route::get('/trophies', [TrophyController::class, 'haalAlleTrophyGegevensOp'])->name('trophies');
-// Route::get('/trophies', [TrophyController::class, 'voorbeeldGebruik'])->name('trophies');
-
-// Adding the new /trophies route
 Route::get('/trophies', [TrophyController::class, 'haalAlleGegevensOp'])->name('trophies');
 Route::get('/addtrophy', [TrophyController::class, 'getTrophies']);
 Route::post('/process_trophy_form', [TrophyController::class, 'processTrophyForm'])->name('process_trophy_form');
@@ -35,22 +35,21 @@ Route::get('/addtrophy', [TrophyController::class, 'getAllTrophiesForLoggedInUse
 Route::get('/addtrophy', [TrophyController::class, 'getTrophies'])->name('addtrophy');
 Route::delete('/remove_trophy/{trophy}', [TrophyController::class, 'destroy'])->name('remove_trophy');
 
-
-
 Route::get('/addscore', [ScoreboardController::class, 'addscore'])->name('addscore');
 Route::post('/addscore', [ScoreboardController::class, 'CreateScore'])->name('addscore');
+
+Route::get('/scoreboard', [ScoreboardController::class, 'getTimePersonal'])->name('scoreboard');
+Route::get('/scoreboard/circuit/{scoreboardId}', [ScoreboardController::class, 'getCircuitData'])->name('scoreboard');
 
 Route::get('/scoreboard', [ScoreboardController::class, 'getScoreboards'])->name('getScoreboards');
 Route::post('/scoreboard/create', [ScoreboardController::class, 'create'])->name('scoreboard.create');
 
-Route::get('/circuit', [TeamsController::class, 'teamsOphalen'])->name('teams');
-Route::get('/circuit', [TeamsController::class, 'circuitOphalen'])->name('circuit');
+Route::get('/circuit', [TeamsController::class, 'teamsOphalen'])->name('circuit');
 
 Route::get('/indexProfiles', [ProfileController::class, 'indexProfiles'])->name('indexProfiles');
 
 Route::get('/create', [ProfileController::class, 'showCreateForm'])->name('createProfile');
 Route::post('/create', [ProfileController::class, 'createProfile'])->name('createProfile');
-Route::post('/create', 'YourController@create')->name('create');
 
 Route::resource('profiles', ProfileController::class);
 
@@ -61,5 +60,3 @@ Route::delete('/destroyuser/{user}', [UserController::class, 'destroy'])->name('
 
 Route::get('/edit-password', [PasswordController::class, 'edit'])->name('editPassword');
 Route::post('/update-password', [PasswordController::class, 'update'])->name('updatePassword');
-
-

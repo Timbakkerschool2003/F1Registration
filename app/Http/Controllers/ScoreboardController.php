@@ -31,14 +31,35 @@ class ScoreboardController extends Controller
         return view('home', compact('scoreboards'));
     }
 
+    public function getTimePersonal()
+    {
+        $scoreboardsPersonal = DB::table('scoreboards')
+            ->join('users', 'scoreboards.users_id', '=', 'users.id')
+            ->join('teams', 'scoreboards.teams_id', '=', 'teams.id')
+            ->select('scoreboards.time', 'users.name as driver_name', 'teams.name as team_name', 'scoreboards.date')
+            ->get();
+
+        return view('scoreboard', compact('scoreboardsPersonal'));
+    }
+
     public function getScoreboards()
     {
+        $scoreboards = Scoreboard::join('users', 'scoreboards.users_id', '=', 'users.id')
+            ->join('teams', 'scoreboards.teams_id', '=', 'teams.id')
+            ->join('circuits', 'scoreboards.circuits_id', '=', 'circuits.id')
+            ->select(
+                'scoreboards.time',
+                'users.name as driver_name',
+                'teams.name as team_name',
+                'circuits.name as circuit_name',
+                'scoreboards.date'
+            )
+            ->get();
 
-        $scoreboards = scoreboard::all();
         return view('scoreboard', compact('scoreboards'));
-
-
     }
+
+
 
     public function addscore(Request $request)
     {
