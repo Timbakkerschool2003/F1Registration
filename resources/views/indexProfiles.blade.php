@@ -40,3 +40,9 @@
         </div>
     </div>
 @endsection
+
+<script>
+    setInterval(function() {
+        location.reload();
+    }, 15000);
+</script>
