@@ -9,10 +9,10 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
+                        <th scope="col">Coureur nummer</th>
+                        <th scope="col">Naam</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Actions</th>
+                        <th scope="col">Wijzigen</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -23,13 +23,13 @@
                             <td>{{ $user->email }}</td>
                             <td>
                                 @if(auth()->check() && auth()->user()->id == $user->id)
-                                    <a href="{{ route('editProfile', $user->id) }}" class="btn btn-warning">Edit</a>
+                                    <a href="{{ route('editProfile', $user->id) }}" class="btn btn-warning">Wijzig gegevens</a>
                                     <form action="{{ route('destroyUser', $user->id) }}" method="post" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Verwijder Account</button>
                                     </form>
-                                    <a href="{{ route('editPassword') }}" class="btn btn-info">Edit Password</a>
+                                    <a href="{{ route('editPassword') }}" class="btn btn-info">Wijzig wachtwoord</a>
                                 @endif
                             </td>
                         </tr>

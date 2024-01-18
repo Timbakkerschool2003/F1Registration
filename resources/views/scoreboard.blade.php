@@ -11,7 +11,7 @@
                         <h2>Scoreboard</h2>
                     </div>
                     <div class="table-responsive">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" id="scoreboardTable">
                             <thead>
                             <tr>
                                 <th scope="col">Driver Name</th>
@@ -36,4 +36,10 @@
             </div>
         </div>
     </div>
+
+    <script>
+        setInterval(function() {
+            location.reload();
+        }, 15000);
+    </script>
 @endsection

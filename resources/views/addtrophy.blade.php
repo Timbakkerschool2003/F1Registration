@@ -45,7 +45,7 @@
                 </form>
             </div>
         @else
-            <p class="mt-5">Please log in to view this page.</p>
+            <p class="mt-5"><a href="{{ route('login') }}">Log in</a> om deze pagina te bekijken.</p>
         @endif
     </div>
 @endsection
