@@ -7,10 +7,11 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th scope="col">Coureur nummer</th>
+{{--                        <th scope="col">Coureur nummer</th>--}}
                         <th scope="col">Naam</th>
                         <th scope="col">Email</th>
                         <th scope="col">Wijzigen</th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -23,7 +24,7 @@
 
                     @foreach ($users as $user)
                         <tr>
-                            <th scope="row">{{ $user->id }}</th>
+{{--                            <td scope="row">{{ $user->id }}</td>--}}
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>
@@ -42,9 +43,8 @@
                     }   else { ?>
                     @foreach ($users as $user)
                         <tr>
-                            <th scope="row">{{ $user->id }}</th>
+{{--                            <th scope="row">{{ $user->id }}</th>--}}
                             <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
                             <td>{{ $user->email }}</td>
                             <td>
                                 @if(auth()->check() && auth()->user()->id == $user->id)
