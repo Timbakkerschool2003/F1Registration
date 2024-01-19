@@ -12,14 +12,24 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * Display the home page.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         return view('home');
     }
 
-
+    /**
+     * Get the personal scoreboard data for the home page.
+     *
+     * @return \Illuminate\View\View
+     */
     public function getTimePersonalHome()
     {
+        // Retrieve personal scoreboard data
         $scoreboardsPersonal = DB::table('scoreboards')
             ->join('users', 'scoreboards.users_id', '=', 'users.id')
             ->join('teams', 'scoreboards.teams_id', '=', 'teams.id')
@@ -29,6 +39,7 @@ class HomeController extends Controller
             ->take(5)
             ->get();
 
+        // Retrieve circuit data for the home page
         $circuitDataHome = DB::table('scoreboards')
             ->join('circuits', 'scoreboards.circuits_id', '=', 'circuits.id')
             ->select('circuits.*')
@@ -37,15 +48,22 @@ class HomeController extends Controller
         return view('home', compact('scoreboardsPersonal', 'circuitDataHome'));
     }
 
-
+    /**
+     * Get circuit data and personal scoreboard data for a specific scoreboard ID.
+     *
+     * @param  int  $scoreboardId
+     * @return \Illuminate\View\View
+     */
     public function getCircuitDataHome($scoreboardId)
     {
+        // Retrieve circuit data for a specific scoreboard ID
         $circuitDataHome = DB::table('scoreboards')
             ->join('circuits', 'scoreboards.circuits_id', '=', 'circuits.id')
             ->where('scoreboards.id', $scoreboardId)
             ->select('circuits.*')
             ->first();
 
+        // Retrieve personal scoreboard data for the home page
         $scoreboardsPersonalHome = DB::table('scoreboards')
             ->join('users', 'scoreboards.users_id', '=', 'users.id')
             ->join('teams', 'scoreboards.teams_id', '=', 'teams.id')
