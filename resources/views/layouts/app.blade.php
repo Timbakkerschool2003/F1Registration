@@ -14,6 +14,9 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <style>
         .navbar-bg {

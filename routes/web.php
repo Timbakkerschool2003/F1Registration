@@ -37,6 +37,9 @@ Route::delete('/remove_trophy/{trophy}', [TrophyController::class, 'destroy'])->
 Route::get('/scoreboard', [ScoreboardController::class, 'getTimePersonal'])->name('scoreboard');
 Route::get('/scoreboard/circuit/{scoreboardId}', [ScoreboardController::class, 'getCircuitData'])->name('scoreboard');
 
+Route::get('/scoreboard', [ScoreboardController::class, 'getScoreData']);
+
+
 Route::get('/scoreboard', [ScoreboardController::class, 'getScoreboards'])->name('getScoreboards');
 Route::post('/scoreboard/create', [ScoreboardController::class, 'create'])->name('scoreboard.create');
 

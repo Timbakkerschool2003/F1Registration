@@ -17,6 +17,33 @@ use Illuminate\Support\Facades\Hash;
 class ScoreboardController extends Controller
 {
 
+
+
+
+
+
+// ...
+
+    public function getScoreData()
+    {
+        $scores = Scoreboard::select('date', 'time')->orderBy('date')->get();
+
+        $data = $scores->map(function ($score) {
+            return [
+                'label' => $score->date,
+                'value' => $score->time,
+            ];
+        });
+
+        return response()->json($data);
+    }
+
+
+
+
+
+
+
     public function storen(Request $request)
     {
     }

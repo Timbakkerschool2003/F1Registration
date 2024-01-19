@@ -33,6 +33,9 @@
                             @endforeach
                             </tbody>
                         </table>
+                        <div class="text-center mb-4">
+                            <canvas id="scoreChart" height="100"></canvas> <!-- Aangepaste hoogte -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -40,6 +43,40 @@
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var scores = @json($scoreboards);
+
+            var dates = scores.map(function (score) {
+                return score.date;
+            });
+
+            var times = scores.map(function (score) {
+                return score.time;
+            });
+
+            var ctx = document.getElementById('scoreChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: 'Tijd',
+                        data: times,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+
         setInterval(function() {
             location.reload();
         }, 15000);
