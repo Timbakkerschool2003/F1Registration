@@ -14,8 +14,8 @@
                         <table class="table table-bordered" id="scoreboardTable">
                             <thead>
                             <tr>
-                                <th scope="col">Driver Name</th>
-                                <th scope="col">Time</th>
+                                <th scope="col">Coureur</th>
+                                <th scope="col">Tijd</th>
                                 <th scope="col">Team</th>
                                 <th scope="col">Circuit</th>
                                 <th scope="col">Datum</th>

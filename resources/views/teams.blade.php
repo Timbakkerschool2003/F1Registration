@@ -67,11 +67,11 @@
                         <img src="images\F1_teams\aston-martin.png">
                         <h5 class="card-title"><b>Aston Martin</b></h5>
                         <p class="card-text">
-                            <b>Team Name:</b> Aston Martin Cognizant Formula One Team<br>
-                            <b>Base:</b> Silverstone, United Kingdom<br>
-                            <b>Debut in Formula 1:</b> 2021 season<br>
-                            <b>Ownership:</b> Lawrence Stroll.<br>
-                            <b>Technical Partner:</b> The team uses Mercedes power units.
+                            <b>Team naam:</b> Aston Martin Cognizant Formula One Team<br>
+                            <b>Vestiging:</b> Silverstone, Verenigd Koninkrijk<br>
+                            <b>Debuut in de Formule 1:</b> Seizoen 2021<br>
+                            <b>Eigenaar:</b> Lawrence Stroll<br>
+                            <b>Technische Partner:</b> Het team gebruikt Mercedes-krachtbronnen.
                         </p>
                     </div>
                 </div>
@@ -83,17 +83,17 @@
                         <img src="images\F1_teams\ferarri.png">
                         <h5 class="card-title"><b>Ferrari</b></h5>
                         <p class="card-text">
-                            <b>Team Name:</b> Scuderia Ferrari<br>
-                            <b>Base:</b> Scuderia Ferrari<br>
-                            <b>Debut in Formula 1:</b> 1950 season<br>
-                            <b>Ownership:</b> Ferrari is a part of the Ferrari company and is a division of Fiat Chrysler Automobiles (now part of Stellantis).<br>
-                            <b>Technical Partner:</b> Ferrari manufactures its own power units.
+                            <b>Team naam:</b> Scuderia Ferrari<br>
+                            <b>Vestiging:</b> Scuderia Ferrari<br>
+                            <b>Debuut in de Formule 1:</b> Seizoen 1950<br>
+                            <b>Eigenaar:</b> Ferrari is een onderdeel van het Ferrari-bedrijf en is een divisie van Fiat Chrysler Automobiles (nu onderdeel van Stellantis).<br>
+                            <b>Technische Partner:</b> Ferrari produceert zijn eigen krachtbronnen.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Repeat similar structure for other cards -->
+            <!-- Herhaal vergelijkbare structuur voor andere kaarten -->
 
             <div class="col-md-4 mb-4">
                 <div class="card animated-card">
@@ -101,11 +101,11 @@
                         <img src="images\F1_teams\mclaren.png">
                         <h5 class="card-title"><b>McLaren</b></h5>
                         <p class="card-text">
-                            <b>Team Name:</b> McLaren F1 Team<br>
-                            <b>Base:</b> Woking, Surrey, United Kingdom<br>
-                            <b>Debut in Formula 1:</b> 1966 season<br>
-                            <b>Ownership:</b> McLaren Racing Limited<br>
-                            <b>Technical Partner:</b> McLaren uses Mercedes power units.
+                            <b>Team naam:</b> McLaren F1 Team<br>
+                            <b>Vestiging:</b> Woking, Surrey, Verenigd Koninkrijk<br>
+                            <b>Debuut in de Formule 1:</b> Seizoen 1966<br>
+                            <b>Eigenaar:</b> McLaren Racing Limited<br>
+                            <b>Technische Partner:</b> McLaren gebruikt Mercedes-krachtbronnen.
                         </p>
                     </div>
                 </div>
@@ -118,11 +118,11 @@
                         <img src="images\F1_teams\mercedes.png">
                         <h5 class="card-title"><b>Mercedes</b></h5>
                         <p class="card-text">
-                            <b>Team Name:</b>Mercedes-AMG Petronas Formula One Team<br>
-                            <b>Base:</b> Brackley, Northamptonshire, United Kingdom, and Brixworth, England (Power Unit Division)<br>
-                            <b>Debut in Formula 1:</b> 2010 season<br>
-                            <b>Ownership:</b> Mercedes-Benz Grand Prix Limited<br>
-                            <b>Technical Partner:</b> Mercedes manufactures its own power units.
+                            <b>Team naam:</b>Mercedes-AMG Petronas Formula One Team<br>
+                            <b>Vestiging:</b> Brackley, Northamptonshire, Verenigd Koninkrijk, en Brixworth, Engeland (Power Unit Division)<br>
+                            <b>Debuut in de Formule 1:</b> Seizoen 2010<br>
+                            <b>Eigenaar:</b> Mercedes-Benz Grand Prix Limited<br>
+                            <b>Technische Partner:</b> Mercedes produceert zijn eigen krachtbronnen.
                         </p>
                     </div>
                 </div>
@@ -134,11 +134,11 @@
                         <img src="images\F1_teams\redbull.png">
                         <h5 class="card-title"><b>Red Bull</b></h5>
                         <p class="card-text">
-                            <b>Team Name:</b>Red Bull Racing<br>
-                            <b>Base:</b>Milton Keynes, United Kingdom<br>
-                            <b>Debut in Formula 1:</b> 2005 season<br>
-                            <b>Ownership:</b>Red Bull Racing is owned by Red Bull GmbH.<br>
-                            <b>Technical Partner:</b>Red Bull Racing uses Honda power units.
+                            <b>Team naam:</b>Red Bull Racing<br>
+                            <b>Vestiging:</b>Milton Keynes, Verenigd Koninkrijk<br>
+                            <b>Debuut in de Formule 1:</b> Seizoen 2005<br>
+                            <b>Eigenaar:</b>Red Bull Racing is eigendom van Red Bull GmbH.<br>
+                            <b>Technische Partner:</b>Red Bull Racing gebruikt Honda-krachtbronnen.
                         </p>
                     </div>
                 </div>
