@@ -14,7 +14,7 @@
             @csrf
 
             <div class="form-group">
-                <label for="user_id">User:</label>
+                <label for="user_id">Coureur:</label>
                 <select name="users_id" id="user_id" class="form-control">
                     @foreach($users as $user)
                         <option value="{{ $user->id }}">{{ $user->name }}</option>
@@ -23,7 +23,7 @@
             </div>
 
             <div class="form-group">
-                <label for="time">Time:</label>
+                <label for="time">Tijd:</label>
                 <input type="text" name="time" id="time" class="form-control">
             </div>
 
@@ -46,7 +46,7 @@
             </div>
 
             <div class="form-group">
-                <label for="date">Date:</label>
+                <label for="date">Datum:</label>
                 <input type="date" name="date" id="date" class="form-control">
             </div>
 
