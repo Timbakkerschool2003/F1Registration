@@ -25,7 +25,8 @@ class HomeController extends Controller
             ->join('teams', 'scoreboards.teams_id', '=', 'teams.id')
             ->join('circuits', 'scoreboards.circuits_id', '=', 'circuits.id')
             ->select('scoreboards.time', 'users.name as driver_name', 'teams.name as team_name', 'scoreboards.date', 'circuits.name as circuit_name')
-            ->orderBy('scoreboards.time', 'asc') // Order by time in ascending order
+            ->orderBy('scoreboards.time', 'asc')
+            ->take(5)
             ->get();
 
         $circuitDataHome = DB::table('scoreboards')
