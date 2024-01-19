@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -10,17 +9,13 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
-    public function run(): void
+    public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-        \App\Models\Driver::factory(10)->create();
-        \App\Models\Team::factory(5)->create();
+        $this->call(CircuitsTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
+        $this->call(TeamsTableSeeder::class);
+        $this->call(TrophysTableSeeder::class); // Voeg deze regel toe
         \App\Models\Scoreboard::factory(20)->create();
-        // Add other factories as needed
+        // Voeg andere factories toe zoals nodig
     }
 }
