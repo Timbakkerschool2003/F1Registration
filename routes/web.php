@@ -10,6 +10,7 @@ use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\TrophyController;
 use App\Http\Controllers\PasswordController;
 
+
 //Hier worden de gegevens van de home pagina opgehaald en de home pagina
 Route::get('/', [UserController::class, 'index']);
 Route::get('/home', [ScoreboardController::class, 'getTime'])->name('get.time');
@@ -42,6 +43,7 @@ Route::get('/scoreboard/circuit/{scoreboardId}', [ScoreboardController::class, '
 Route::get('/scoreboard', [ScoreboardController::class, 'getScoreData']);
 Route::get('/scoreboard', [ScoreboardController::class, 'getScoreboards'])->name('getScoreboards');
 Route::post('/scoreboard/create', [ScoreboardController::class, 'create'])->name('scoreboard.create');
+
 
 //Hier word het circuit opgehaald voor de scoreboards
 Route::get('/circuit', [TeamsController::class, 'getCircuits'])->name('circuit');

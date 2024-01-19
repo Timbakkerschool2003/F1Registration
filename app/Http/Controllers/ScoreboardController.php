@@ -148,5 +148,7 @@ class ScoreboardController extends Controller
         return redirect()->route('addscore.create')->with('success', 'Score toegevoegd');
     }
 
+
+
 }
 
