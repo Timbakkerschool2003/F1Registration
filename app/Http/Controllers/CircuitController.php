@@ -7,4 +7,5 @@ use App\Models\Circuit;
 class CircuitController extends Controller
 {
 
+
 }
