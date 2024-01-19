@@ -22,6 +22,10 @@
                             </tr>
                             </thead>
                             <tbody>
+
+
+
+
                             @foreach($scoreboards as $scoreboard)
                                 <tr>
                                     <td>{{ $scoreboard->driver_name }}</td>
@@ -29,6 +33,15 @@
                                     <td>{{ $scoreboard->team_name }}</td>
                                     <td>{{ $scoreboard->circuit_name }}</td>
                                     <td>{{ $scoreboard->date }}</td>
+                                    <td>
+<?php
+                                            if(auth()->user()->is_admin == 1){
+                                                echo 'hallo Admin';
+                                            } else {
+                                                echo 'hallo geen Admin';
+                                            }
+                                            ?>
+                                            </td>
                                 </tr>
                             @endforeach
                             </tbody>

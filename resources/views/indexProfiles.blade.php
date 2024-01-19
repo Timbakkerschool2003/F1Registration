@@ -45,6 +45,7 @@
                             <th scope="row">{{ $user->id }}</th>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
+                            <td>{{ $user->email }}</td>
                             <td>
                                 @if(auth()->check() && auth()->user()->id == $user->id)
                                     <a href="{{ route('editProfile', $user->id) }}" class="btn btn-warning">Wijzig gegevens</a>
