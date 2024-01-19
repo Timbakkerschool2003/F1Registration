@@ -1,5 +1,3 @@
-<!-- resources/views/indexprofiles.blade.php -->
-
 @extends('layouts.app')
 
 @section('content')
