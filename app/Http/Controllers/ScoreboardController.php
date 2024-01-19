@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Hash;
 
 class ScoreboardController extends Controller
 {
+
     public function getScoreData()
     {
         $scores = Scoreboard::select('date', 'time')->orderBy('date')->get();
