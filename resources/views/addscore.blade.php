@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h2>Add Score</h2>
+        <h2>Voeg Score toe</h2>
 
         @if(session('success'))
             <div class="alert alert-success">
