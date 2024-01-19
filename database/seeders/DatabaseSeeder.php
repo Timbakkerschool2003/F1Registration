@@ -14,8 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CircuitsTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(TeamsTableSeeder::class);
-        $this->call(TrophysTableSeeder::class); // Voeg deze regel toe
+        $this->call(TrophysTableSeeder::class);
         \App\Models\Scoreboard::factory(20)->create();
-        // Voeg andere factories toe zoals nodig
     }
 }
