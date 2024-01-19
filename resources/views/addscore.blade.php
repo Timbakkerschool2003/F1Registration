@@ -49,8 +49,8 @@
                 <label for="date">Datum:</label>
                 <input type="date" name="date" id="date" class="form-control">
             </div>
-
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <br>
+            <button type="submit" class="btn btn-danger">Submit</button>
         </form>
     </div>
 @endsection

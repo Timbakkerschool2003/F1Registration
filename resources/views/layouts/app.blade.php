@@ -16,6 +16,8 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <link rel="stylesheet" href="css/profile.css">
+
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <style>

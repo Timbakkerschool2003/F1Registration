@@ -13,82 +13,76 @@ use Illuminate\Http\Request;
 class ProfileController extends Controller
 {
     /**
-     *  $this->middleware('auth'); => gebruiker moet ingelogd zijn!
+     * Ensure the user is authenticated before accessing any methods.
      */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    public function indexProfiles(){
-        $profiles = profile::all();
+    /**
+     * Display a listing of all profiles.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function indexProfiles()
+    {
+        $profiles = Profile::all();
         return view('indexProfiles', compact('profiles'));
     }
 
     /**
-     * Display a listing of the resource.
+     * Show the form to create a new profile.
+     *
+     * @return \Illuminate\View\View
      */
-    public function showprofiles()
-    {
-        $profiles = Profile::all(); // Use the Profile model instead of profile
-
-        return view('showprofiles', compact('profiles'));
-    }
     public function showCreateForm()
     {
         return view('create');
     }
+
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
-     * @return \App\Models\User
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\View\View
      */
     public function createProfile(Request $request)
     {
-//        // Validate and process the form submission
-//        $data = $request->validate([
-//            'name' => 'required|string',
-//            'email' => 'required|email',
-//            'password' => 'required|min:8',
-//            // Add more validation rules as needed
-//        ]);
-//
-//        // Create a new profile based on the validated data
-//        $profile = $this->createProfile($data);
-//        dd($data);
-//        // Redirect or perform any other actions
-//        //return redirect()->route('home');
-
         $newUser = User::create([
             'name' =>  $request->input('name'),
             'email' =>  $request->input('email'),
-            'password' =>  $request->input('password')
+            'password' =>  Hash::make($request->input('password')),
         ]);
 
         return view('create');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created profile in storage.
+     *
+     * @param  \App\Http\Requests\StoreProfileRequest  $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StoreProfileRequest $request)
     {
-
         $request->validate([
             'user_id' => 'required',
             'firstname' => 'required',
             'lastname' => 'required',
-            'mobile' => 'required'
+            'mobile' => 'required',
         ]);
 
         Profile::createProfiles($request->all());
 
-        return redirect()->route('index')->with('succes', 'Profile created');
+        return redirect()->route('index')->with('success', 'Profile created successfully.');
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified profile.
+     *
+     * @param  \App\Models\Profile  $profile
+     * @return \Illuminate\View\View
      */
     public function show(Profile $profile)
     {
@@ -96,10 +90,14 @@ class ProfileController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified profile.
+     *
+     * @param  \App\Models\Profile  $profile
+     * @return \Illuminate\View\View
      */
     public function edit(Profile $profile)
     {
+        // Check if the authenticated user has permission to edit this profile
         if ($profile->user_id !== auth()->id()) {
             abort(403, 'Unauthorized action.');
         }
@@ -108,34 +106,40 @@ class ProfileController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified profile in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Profile  $profile
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Profile $profile)
+    public function update(UpdateProfileRequest $request, Profile $profile)
     {
+        // Check if the authenticated user has permission to update this profile
         if ($profile->user_id !== auth()->id()) {
             abort(403, 'Unauthorized action.');
         }
 
         $request->validate([
-            'firstname' => 'required|string|255',
-            'lastname' => 'required|string|255',
-            'mobile' => 'required|string|15'
+            'firstname' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'mobile' => 'required|string|max:15',
         ]);
 
         $profile->update($request->all());
 
-        return redirect()->route('index')
-            ->with('success', 'Profile updated successfully.');
+        return redirect()->route('index')->with('success', 'Profile updated successfully.');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified profile from storage.
+     *
+     * @param  \App\Models\Profile  $profile
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Profile $profile)
     {
         $profile->delete();
 
-        return redirect()->route('index')
-            ->with('success', 'Profile deleted successfully.');
+        return redirect()->route('index')->with('success', 'Profile deleted successfully.');
     }
 }
