@@ -24,7 +24,7 @@
 
             <div class="form-group">
                 <label for="time">Tijd:</label>
-                <input type="text" name="time" id="time" class="form-control">
+                <input type="time" step="0.001" name="time" id="time" class="form-control">
             </div>
 
             <div class="form-group">

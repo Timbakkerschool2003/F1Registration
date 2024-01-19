@@ -1,6 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
+    <head>
+        <style>
+            #input {
+                background-position: 10px 12px;
+                background-repeat: no-repeat;
+                width: 100%;
+                font-size: 16px;
+                padding: 12px 20px 12px 40px;
+                border: 1px solid #ddd;
+                margin-bottom: 12px;
+            }
+        </style>
+    </head>
     <body style="background-image: url('/images/background.jpg'); background-size: cover; background-repeat: no-repeat;">
 
     <div class="container">
@@ -10,7 +23,8 @@
                     <div class="text-center mb-4">
                         <h2>Scoreboard</h2>
                     </div>
-                    <div class="table-responsive">
+                    <input type="text" id="input" onkeyup="myFunction()" placeholder="Zoeken op coureur..">
+                    <div class="table-responsive" id="tabel">
                         <table class="table table-bordered" id="scoreboardTable">
                             <thead>
                             <tr>
@@ -93,5 +107,28 @@
         setInterval(function() {
             location.reload();
         }, 15000);
+
+        function myFunction() {
+            // Declare variables
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("input");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("tabel");
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
     </script>
 @endsection
