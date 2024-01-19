@@ -39,13 +39,7 @@ Route::delete('/remove_trophy/{trophy}', [TrophyController::class, 'destroy'])->
 //Hier word de scoreboard opgehaald
 Route::get('/scoreboard', [ScoreboardController::class, 'getTimePersonal'])->name('scoreboard');
 Route::get('/scoreboard/circuit/{scoreboardId}', [ScoreboardController::class, 'getCircuitData'])->name('scoreboard');
-<<<<<<< Updated upstream
-
 Route::get('/scoreboard', [ScoreboardController::class, 'getScoreData']);
-
-
-=======
->>>>>>> Stashed changes
 Route::get('/scoreboard', [ScoreboardController::class, 'getScoreboards'])->name('getScoreboards');
 Route::post('/scoreboard/create', [ScoreboardController::class, 'create'])->name('scoreboard.create');
 

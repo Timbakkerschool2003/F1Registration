@@ -16,15 +16,6 @@ use Illuminate\Support\Facades\Hash;
 
 class ScoreboardController extends Controller
 {
-
-<<<<<<< Updated upstream
-
-
-
-
-
-// ...
-
     public function getScoreData()
     {
         $scores = Scoreboard::select('date', 'time')->orderBy('date')->get();
@@ -39,18 +30,10 @@ class ScoreboardController extends Controller
         return response()->json($data);
     }
 
-
-
-
-
-
-
     public function storen(Request $request)
     {
     }
 
-=======
->>>>>>> Stashed changes
     public function getTime()
     {
         $scoreboards = DB::table('scoreboards')
