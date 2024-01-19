@@ -43,7 +43,7 @@ Route::get('/scoreboard', [ScoreboardController::class, 'getScoreData']);
 Route::get('/scoreboard', [ScoreboardController::class, 'getScoreboards'])->name('getScoreboards');
 Route::post('/scoreboard/create', [ScoreboardController::class, 'create'])->name('scoreboard.create');
 
-Route::get('/circuit', [TeamsController::class, 'teamsOphalen'])->name('circuit');
+Route::get('/circuit', [TeamsController::class, 'circuitOphalen'])->name('circuit');
 
 Route::get('/indexProfiles', [ProfileController::class, 'indexProfiles'])->name('indexProfiles');
 
