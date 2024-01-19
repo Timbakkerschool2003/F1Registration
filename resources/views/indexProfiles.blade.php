@@ -16,6 +16,32 @@
                     </tr>
                     </thead>
                     <tbody>
+
+                    <?php
+
+                    if(auth()->user()->is_admin == 1){
+
+                        print('is admin');?>
+
+                    @foreach ($users as $user)
+                        <tr>
+                            <th scope="row">{{ $user->id }}</th>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>
+                                    <a href="{{ route('editProfile', $user->id) }}" class="btn btn-warning">Wijzig gegevens</a>
+                                    <form action="{{ route('destroyUser', $user->id) }}" method="post" style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Verwijder Account</button>
+                                    </form>
+                                    <a href="{{ route('editPassword') }}" class="btn btn-info">Wijzig wachtwoord</a>
+                            </td>
+                        </tr>
+                    @endforeach
+<?php
+
+                    }   else { ?>
                     @foreach ($users as $user)
                         <tr>
                             <th scope="row">{{ $user->id }}</th>
@@ -34,6 +60,12 @@
                             </td>
                         </tr>
                     @endforeach
+
+                    <?php }
+
+                    ?>
+
+
                     </tbody>
                 </table>
             </div>
