@@ -7,13 +7,15 @@ use App\Models\Team;
 
 class TeamsController extends Controller
 {
-    public function teamsOphalen()
+    //Hier worden alle teams opgehaald
+    public function getAllTeams()
     {
         $teams = Team::all();
         return view('teams' , ['teams' => $teams]);
     }
 
-    public function circuitOphalen()
+    //Hier worden alle circuits opgehaald
+    public function getCircuits()
     {
         $circuit = Circuit::all();
         return view('circuit' , ['circuit' => $circuit]);

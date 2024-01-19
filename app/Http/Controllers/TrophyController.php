@@ -21,7 +21,7 @@ class TrophyController extends Controller
     }
 
     // Voorbeeld van het gebruik van de functie
-    public function haalAlleGegevensOp()
+    public function getAllInfo()
     {
         // Ophalen van trophy-gegevens met gebruikersinformatie
         $trophyData = DB::table('users_has_trophys')->get();
@@ -83,18 +83,18 @@ class TrophyController extends Controller
             return view('addtrophy', ['userTrophies' => $userTrophies]);
         }
 
-        // Als de gebruiker niet is ingelogd, kun je hier een redirect of een foutmelding toevoegen.
+        // Als de gebruiker niet is ingelogd, krijg je deze foutmelding
         return redirect()->route('login')->with('error', 'Je moet ingelogd zijn om deze pagina te bekijken.');
     }
 
     public function destroy(Trophy $trophy)
     {
-        // Ensure the trophy belongs to the logged-in user
+        // checkt of de trofee echt van de gebruiker is
         if (Auth::user()->trophies->contains($trophy)) {
             Auth::user()->trophies()->detach($trophy);
-            return redirect()->route('addtrophy')->with('success', 'Trophy removed successfully!');
+            return redirect()->route('addtrophy');
         }
 
-        return redirect()->route('addtrophy')->with('error', 'Unable to remove the trophy.');
+        return redirect()->route('addtrophy');
     }
 }
