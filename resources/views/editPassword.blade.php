@@ -1,4 +1,3 @@
-<!-- resources/views/editPassword.blade.php -->
 
 @extends('layouts.app')
 

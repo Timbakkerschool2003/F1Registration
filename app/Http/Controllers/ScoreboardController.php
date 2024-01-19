@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Hash;
 class ScoreboardController extends Controller
 {
 
+<<<<<<< Updated upstream
 
 
 
@@ -48,6 +49,8 @@ class ScoreboardController extends Controller
     {
     }
 
+=======
+>>>>>>> Stashed changes
     public function getTime()
     {
         $scoreboards = DB::table('scoreboards')
@@ -88,7 +91,6 @@ class ScoreboardController extends Controller
         return view('scoreboard', compact('scoreboards'));
     }
 
-
     public function addscore()
     {
         $users = User::all();
@@ -104,27 +106,6 @@ class ScoreboardController extends Controller
      * @param array $data
      * @return \App\Models\User
      */
-    public function CreateNewScoreboard(Request $request)
-    {
-        return Scoreboard::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-        ]);
-    }
-
-
-    public function teamsOphalen()
-    {
-        $teams = Team::all();
-        return $teams;
-    }
-
-    public function circuitOphalen()
-    {
-        $circuit = Circuit::all();
-        return $circuit;
-    }
 
 
     public function create()
@@ -156,7 +137,7 @@ class ScoreboardController extends Controller
             'date' => $request->date,
         ]);
 
-        return redirect()->route('scoreboard')->with('success', 'Score added successfully!');
+        return redirect()->route('scoreboard')->with('success', 'Score toegevoegd');
     }
 
     public function createScore(Request $request)
@@ -180,7 +161,7 @@ class ScoreboardController extends Controller
         ]);
 
         // Redirect back or to a success page
-        return redirect()->route('addscore.create')->with('success', 'Score added successfully!');
+        return redirect()->route('addscore.create')->with('success', 'Score toegevoegd');
     }
 
 }
